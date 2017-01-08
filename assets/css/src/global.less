@@ -1,0 +1,152 @@
+//
+// Dyncom: Variables
+//
+// ========================================================================
+
+
+// Global variables
+// ========================================================================
+@global-width                  : 1440px;
+@global-main-color             : #222222;
+@global-text-contrast          : #bdbdbd;
+
+// Temp styles
+// ========================================================================
+html {
+  /* 1 */
+  font: 100 16px / 22px Avenir,"Century Gothic",CenturyGothic,AppleGothic,sans-serif;
+  /* 2 */
+  -webkit-text-size-adjust: 100%;
+  -ms-text-size-adjust: 100%;
+  /* 3 */
+  background: #ffffff;
+  color: #444444;
+}
+.uk-text-spaced{
+  letter-spacing: 1.1px;
+}
+.uk-navbar-flip .uk-navbar-nav>li.temp{
+  padding:10px 0px;
+}
+.uk-navbar-flip .uk-navbar-nav>li.temp>a{
+  border: 3px solid #fce300;
+  height: 40px;
+  line-height: 39px;
+  font-size:14px;
+  color:#fff;
+}
+.uk-navbar {
+    background: @global-main-color;
+}
+.uk-navbar-nav>li>a {
+    font-family: Avenir,"Century Gothic",CenturyGothic,AppleGothic,sans-serif;
+    color:@global-text-contrast;
+    text-shadow:none;
+    height: 60px;
+    line-height: 59px;
+    font-size:16px;
+    padding:0 30px;
+}
+.uk-navbar-flip .uk-navbar-nav>li>a{
+  padding:0px 15px;
+}
+.uk-navbar-brand{
+  padding-left:0;
+  width:20%;
+}
+.uk-navbar-brand img{
+  height:50px;
+  padding-top:10px;
+}
+/* ========================================================================
+   Dyn Fonts
+   ======================================================================== */
+ //Avenir Light
+@font-face {
+  font-family: 'Avenir';
+  src: url('../../fonts/Avenir/AvenirLTW04_35Light.eot');
+  src: url('../../fonts/Avenir/AvenirLTW04_35Light.eot?#iefix') format('embedded-opentype'), url('../../fonts/Avenir/AvenirLTW04_35Light.woff2') format('woff2'), url('../../fonts/Avenir/AvenirLTW04_35Light.woff') format('woff'), url('../../fonts/Avenir/AvenirLTW04_35Light.ttf') format('truetype');
+  font-style: normal;
+  font-weight: 100;
+}
+@font-face {
+  font-family: 'Avenir';
+  src: url('../../fonts/Avenir/AvenirLTW04_35LightOblique.eot');
+  src: url('../../fonts/Avenir/AvenirLTW04_35LightOblique.eot?#iefix') format('embedded-opentype'), url('../../fonts/Avenir/AvenirLTW04_35LightOblique.woff2') format('woff2'), url('../../fonts/Avenir/AvenirLTW04_35LightOblique.woff') format('woff'), url('../../fonts/Avenir/AvenirLTW04_35LightOblique.ttf') format('truetype');
+  font-style: italic;
+  font-weight: 100;
+}
+
+//Avenir Normal
+@font-face {
+  font-family: 'Avenir';
+  src: url('../../fonts/Avenir/AvenirLTW04_55Roman.eot');
+  src: url('../../fonts/Avenir/AvenirLTW04_55Roman.eot?#iefix') format('embedded-opentype'), url('../../fonts/Avenir/AvenirLTW04_55Roman.woff2') format('woff2'), url('../../fonts/Avenir/AvenirLTW04_55Roman.woff') format('woff'), url('../../fonts/Avenir/AvenirLTW04_55Roman.ttf') format('truetype');
+  font-style: normal;
+  font-weight: 300;
+}
+@font-face {
+  font-family: 'Avenir';
+  src: url('../../fonts/Avenir/AvenirLTW04_55RomanOblique.eot');
+  src: url('../../fonts/Avenir/AvenirLTW04_55RomanOblique.eot?#iefix') format('embedded-opentype'), url('../../fonts/Avenir/AvenirLTW04_55RomanOblique.woff2') format('woff2'), url('../../fonts/Avenir/AvenirLTW04_55RomanOblique.woff') format('woff'), url('../css/fonts/AvenirLTW04_55RomanOblique.ttf') format('truetype');
+  font-style: italic;
+  font-weight: 300;
+}
+
+//Avenir Medium
+@font-face {
+  font-family: 'Avenir';
+  src: url('../../fonts/Avenir/AvenirLTW04_65Medium.eot');
+  src: url('../../fonts/Avenir/AvenirLTW04_65Medium.eot?#iefix') format('embedded-opentype'), url('../../fonts/Avenir/AvenirLTW04_65Medium.woff2') format('woff2'), url('../../fonts/Avenir/AvenirLTW04_65Medium.woff') format('woff'), url('../../fonts/Avenir/AvenirLTW04_65Medium.ttf') format('truetype');
+  font-style: normal;
+  font-weight: 400;
+}
+@font-face {
+  font-family: 'Avenir';
+  src: url('../../fonts/Avenir/AvenirLTW04_65MediumOblique.eot');
+  src: url('../../fonts/Avenir/AvenirLTW04_35LightAvenirLTW04_65MediumObliqueOblique.eot?#iefix') format('embedded-opentype'), url('../../fonts/Avenir/AvenirLTW04_65MediumOblique.woff2') format('woff2'), url('../../fonts/Avenir/AvenirLTW04_65MediumOblique.woff') format('woff'), url('../../fonts/Avenir/AvenirLTW04_65MediumOblique.ttf') format('truetype');
+  font-style: italic;
+  font-weight: 400;
+}
+
+//Avenir Heavy
+@font-face {
+  font-family: 'Avenir';
+  src: url('../../fonts/Avenir/AvenirLTW01_85Heavy.eot');
+  src: url('../../fonts/Avenir/AvenirLTW01_85Heavy.eot?#iefix') format('embedded-opentype'), url('../../fonts/Avenir/AvenirLTW01_85Heavy.woff2') format('woff2'), url('../../fonts/Avenir/AvenirLTW01_85Heavy.woff') format('woff'), url('../../fonts/Avenir/AvenirLTW01_85Heavy.ttf') format('truetype');
+  font-style: normal;
+  font-weight: 600;
+}
+@font-face {
+  font-family: 'Avenir';
+  src: url('../../fonts/Avenir/AvenirLTW01_85HeavyOblique.eot');
+  src: url('../../fonts/Avenir/AvenirLTW01_85HeavyOblique.eot?#iefix') format('embedded-opentype'), url('../../fonts/Avenir/AvenirLTW01_85HeavyOblique.woff2') format('woff2'), url('../../fonts/Avenir/AvenirLTW01_85HeavyOblique.woff') format('woff'), url('../../fonts/Avenir/AvenirLTW01_85HeavyOblique.ttf') format('truetype');
+  font-style: italic;
+  font-weight: 600;
+}
+
+//Avenir Bold
+@font-face {
+  font-family: 'Avenir';
+  src: url('../../fonts/Avenir/AvenirLTW04_95Black.eot');
+  src: url('../../fonts/Avenir/AvenirLTW04_95Black.eot?#iefix') format('embedded-opentype'), url('../../fonts/Avenir/AvenirLTW04_95Black.woff2') format('woff2'), url('../../fonts/Avenir/AvenirLTW04_95Black.woff') format('woff'), url('../../fonts/Avenir/AvenirLTW04_95Black.ttf') format('truetype');
+  font-style: normal;
+  font-weight: 900;
+}
+@font-face {
+  font-family: 'Avenir';
+  src: url('../../fonts/Avenir/AvenirLTW04_95BlackOblique.eot');
+  src: url('../../fonts/Avenir/AvenirLTW04_95BlackOblique.eot?#iefix') format('embedded-opentype'), url('../../fonts/Avenir/AvenirLTW04_95BlackOblique.woff2') format('woff2'), url('../../fonts/Avenir/AvenirLTW04_95BlackOblique.woff') format('woff'), url('../../fonts/Avenir/AvenirLTW04_95BlackOblique.ttf') format('truetype');
+  font-style: italic;
+  font-weight: 900;
+}
+
+// Media Queries
+// ========================================================================
+
+@media (min-width: 1220px){
+  .uk-container {
+      max-width: @global-width;
+      padding:0;
+  }
+}
