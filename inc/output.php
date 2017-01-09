@@ -30,11 +30,11 @@ function basey_head_output() { ?>
 				'walker'            => new basey_primary_menu())
 			);
 			?>
-			<div class="uk-navbar-flip uk-hidden-small">
+			<div id="navbar-side" class="uk-navbar-flip uk-hidden-small">
 					<ul class="uk-navbar-nav">
-							<li class="temp"><a class="uk-text-uppercase uk-text-spaced" href="">Connect</a></li>
-							<li><a href="">Search</a></li>
-							<li><a href="">Profile</a></li>
+							<li><a class="uk-text-uppercase uk-text-spaced uk-temp-button" href="">Connect</a></li>
+							<li><a href=""><i class="uk-icon-search uk-icon-medium"></i></a></li>
+							<li><a href=""><i class="uk-icon-rebel uk-icon-medium"></i></a></li>
 					</ul>
 			</div>
 			<div class="uk-navbar-flip uk-visible-small">
