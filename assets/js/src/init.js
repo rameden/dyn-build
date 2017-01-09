@@ -1,10 +1,3 @@
-(function( $ ) {
-  "use strict";
+jQuery(document).ready(function($){
 
-  // Load SVGs
-  boomsvgloader.load(svgSpritePath);
-
-  // Placeholder
-  $('[placeholder]').placeholder();
-
-}(jQuery));
+});

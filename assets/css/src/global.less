@@ -10,6 +10,9 @@
 @global-main-color             : #222222;
 @global-text-contrast          : #bdbdbd;
 
+// Global Colors
+// ========================================================================
+@dyn-yellow                    : #fce300;
 // Temp styles
 // ========================================================================
 html {
@@ -50,17 +53,78 @@ html {
     font-size:16px;
     padding:0 30px;
 }
+#menu-main-menu.uk-navbar-nav>li>a{
+  line-height: 56px;
+  border-top:3px solid transparent;
+}
+#menu-main-menu .uk-dropdown-navbar{
+  margin-top:1px;
+  border-radius: 0;
+  padding: 0 15px;
+}
+#menu-main-menu .uk-dropdown-navbar:before{
+  content: '\25b2';
+  padding-left: 0.5em;
+  position: absolute;
+  color: #fff;
+  top: -15px;
+  left: 30px;
+}
+
 .uk-navbar-flip .uk-navbar-nav>li>a{
   padding:0px 15px;
 }
 .uk-navbar-brand{
   padding-left:0;
-  width:20%;
 }
 .uk-navbar-brand img{
   height:50px;
   padding-top:10px;
 }
+#menu-main-menu.uk-navbar-nav>li.uk-open>a,
+#menu-main-menu.uk-navbar-nav>li:hover>a,
+#menu-main-menu.uk-navbar-nav>li>a:focus {
+    background-color: transparent;
+    color: @global-text-contrast;
+    outline: 0;
+    position: relative;
+    z-index: 1;
+    border-top-color: @dyn-yellow;
+    border-bottom-color:transparent;
+    border-left-color:transparent;
+    border-right-color:transparent;
+}
+#menu-main-menu .uk-dropdown ul>li>a{
+  padding: 10px 10px 10px 0;
+  font-size: 16px;
+  line-height: 22px;
+}
+#menu-main-menu .uk-dropdown ul li {
+    padding: 10px 20px;
+    margin: 0;
+    border-top: 1px solid #ECECD9;
+}
+#menu-main-menu .uk-dropdown .uk-nav-navbar > li:hover {
+    background: #f6f6f6;
+}
+#menu-main-menu .uk-dropdown .uk-nav-navbar > li > a:hover,
+#menu-main-menu .uk-dropdown .uk-nav-navbar > li > a:focus {
+    background: transparent;
+    color: inherit;
+}
+#navbar-side .uk-navbar-nav>li.uk-open>a,
+#navbar-side .uk-navbar-nav>li:hover>a,
+#navbar-side .uk-navbar-nav>li>a:focus {
+    background-color: transparent;
+    color: @global-text-contrast;
+    border-color:transparent;
+}
+#navbar-side .uk-navbar-nav>li.uk-open>a.uk-temp-button,
+#navbar-side .uk-navbar-nav>li:hover>a.uk-temp-button,
+#navbar-side .uk-navbar-nav>li>a.uk-temp-button:focus{
+  border: 3px solid #fce300;
+}
+
 /* ========================================================================
    Dyn Fonts
    ======================================================================== */

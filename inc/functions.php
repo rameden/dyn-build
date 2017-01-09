@@ -15,6 +15,10 @@ function basey_setup() {
 		'primary' => __( 'Primary Menu', 'basey' ),
 	));
 
+	register_nav_menus(array(
+		'user' => __( 'User Menu', 'basey' ),
+	));
+
 	if ( ! isset( $content_width ) ) $content_width = 1000;
 
 }
@@ -288,3 +292,49 @@ function basey_title() {
 		the_title();
 	}
 }
+function assets() {
+
+	wp_enqueue_style('my-css', get_stylesheet_directory_uri('styles/main.css'), false, null);
+
+  $inline_css = '';
+
+  // Section styles
+  if ( have_rows('main_builder') ) {
+    $section_id = 1;
+    while ( have_rows('main_builder') ) {
+      the_row();
+
+      $styles = get_sub_field( 'section_styles' );
+
+      // element id
+      $inline_css .= "
+#content-section-{$section_id} {
+";
+
+      // set background
+      if ( !empty( $styles['background_image'] ) ) {
+        $inline_css .= "
+				  background-image: url({$styles['background_image']['url']});
+				";
+      }
+
+      // set other styles
+      $inline_css .= "
+			  background-color: {$styles['background_color']};
+			  margin: {$styles['margin']};
+			  padding: {$styles['padding']};
+			";
+
+      // end element id
+      $inline_css .= "
+  }
+  ";
+
+      $section_id++;
+    }
+  }
+
+  wp_add_inline_style( 'my-css', $inline_css );
+}
+
+add_action('wp_enqueue_scripts', 'assets');

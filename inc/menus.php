@@ -1,9 +1,11 @@
 <?php
-
 /**
  * Class Name: basey_primary_menu
  * Description: A custom WordPress nav walker class to implement UIkit menu markup
  */
+ //exit if accessed directly
+ if(!defined('ABSPATH')) exit;
+
 class basey_primary_menu extends Walker_Nav_Menu {
 
 	/**
@@ -14,7 +16,7 @@ class basey_primary_menu extends Walker_Nav_Menu {
 	 * @param int $depth Depth of page. Used for padding.
 	 */
 	public function start_lvl( &$output, $depth = 0, $args = array() ) {
-		$indent = str_repeat( "\t", $depth );
+		$indent = ( $depth ) ? str_repeat( "\t", $depth ) : '';
 		$output .= "\n$indent<div class=\"uk-dropdown uk-dropdown-navbar\">\n<ul role=\"menu\" class=\"uk-nav uk-nav-navbar\">\n";
 	}
 
@@ -30,7 +32,7 @@ class basey_primary_menu extends Walker_Nav_Menu {
 	 * @param array  $args   Not used.
 	 */
 	public function end_lvl( &$output, $depth = 0, $args = array() ) {
-		$indent = str_repeat( "\t", $depth );
+		$indent = ( $depth ) ? str_repeat( "\t", $depth ) : '';
 		$output .= "\n$indent</ul></div>";
 	}
 
@@ -49,20 +51,23 @@ class basey_primary_menu extends Walker_Nav_Menu {
 
 
 		$class_names = $value = '';
+		$dropdown = '';
 
 		$classes = empty( $item->classes ) ? array() : (array) $item->classes;
 		$classes[] = 'menu-item-' . $item->ID;
 
 		$class_names = join( ' ', apply_filters( 'nav_menu_css_class', array_filter( $classes ), $item, $args ) );
 
-		if ( $args->has_children )
+		if($args->has_children && $depth === 0) {
 			$class_names .= ' uk-parent';
+			$dropdown .= ' data-uk-dropdown="{mode:\'hover\'}"';
+		} elseif($args->has_children && $depth > 0) {
+			$class_names .= ' uk-parent-submenu';
+			$dropdown .= ' data-uk-dropdown="{mode:\'hover\'}"';
+		}
 
-		$dropdown = '';
-		if ( $args->has_children && $depth == 0)
-			$dropdown .= ' data-uk-dropdown="{mode:\'click\'}"';
 
-		if ( in_array( 'current-menu-item', $classes ) || in_array('current-menu-parent', $classes))
+		if ( in_array( 'current-menu-item', $classes ) )
 			$class_names .= ' uk-active';
 
 		$class_names = $class_names ? ' class="' . esc_attr( $class_names ) . '"' : '';
@@ -78,11 +83,10 @@ class basey_primary_menu extends Walker_Nav_Menu {
 		$atts['rel']    = ! empty( $item->xfn )		? $item->xfn	: '';
 
 		// If item has_children add atts to a.
-		if ( $args->has_children && $depth === 0 ) {
+		if ( $args->has_children) {
 			$atts['href']          = '#';
-			// $atts['data-toggle']   = 'dropdown';
-			// $atts['class']         = 'dropdown-toggle';
-			// $atts['aria-haspopup'] = 'true';
+			$atts['data-toggle']   = 'dropdown';
+			$atts['class']         = 'dropdown-toggle';
 		} else {
 			$atts['href'] = ! empty( $item->url ) ? $item->url : '';
 		}
@@ -101,7 +105,7 @@ class basey_primary_menu extends Walker_Nav_Menu {
 
 		$item_output .= '<a'. $attributes .'>';
 		$item_output .= $args->link_before . apply_filters( 'the_title', $item->title, $item->ID ) . $args->link_after;
-		$item_output .= ( $args->has_children && 0 === $depth ) ? ' <span class="uk-icon-caret-down"></span></a>' : '</a>';
+		$item_output .= ( $args->has_children) ? '</a>' : '</a>';
 		$item_output .= $args->after;
 
 		$output .= apply_filters( 'walker_nav_menu_start_el', $item_output, $item, $depth, $args );
@@ -134,10 +138,11 @@ class basey_primary_menu extends Walker_Nav_Menu {
         $id_field = $this->db_fields['id'];
 
         // Display this element.
-        if ( is_object( $args[0] ) )
+        if ( is_object( $args[0] ) ){
            $args[0]->has_children = ! empty( $children_elements[ $element->$id_field ] );
 
         parent::display_element( $element, $children_elements, $max_depth, $depth, $args, $output );
+      }
     }
 
 	/**
