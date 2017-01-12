@@ -321,7 +321,6 @@ function assets() {
       // set other styles
       $inline_css .= "
 			  background-color: {$styles['background_color']};
-			  margin: {$styles['margin']};
 			  padding: {$styles['padding']};
 			";
 
@@ -338,3 +337,23 @@ function assets() {
 }
 
 add_action('wp_enqueue_scripts', 'assets');
+
+function my_acf_admin_head() {
+	?>
+	<script type="text/javascript">
+	(function($){
+
+		$(document).ready(function(){
+
+            $( ".-collapse" ).each(function( index ) {
+              $( this ).click();
+            });
+
+        });
+
+	})(jQuery);
+	</script>
+	<?php
+}
+
+add_action('acf/input/admin_head', 'my_acf_admin_head');
