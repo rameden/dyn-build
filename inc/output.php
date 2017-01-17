@@ -67,11 +67,13 @@ add_action( 'basey_head', 'basey_head_output' );
  * @return void
  */
 function basey_content_before_output() { ?>
+	<?php if ( !is_page_template( 'main.php' ) ) { ?>
 	<section class="uk-margin">
 		<div class="uk-container">
 			<div class="uk-grid" data-uk-grid-margin>
 				<div class="uk-width-medium-7-10">
 			<?php
+		}
 }
 add_action( 'basey_content_before', 'basey_content_before_output' );
 
@@ -79,8 +81,8 @@ add_action( 'basey_content_before', 'basey_content_before_output' );
  * After content
  * @return void
  */
-function basey_content_after_output() { ?>
-
+function basey_content_after_output() {
+	if ( !is_page_template( 'main.php' ) ) { ?>
 				</div>
 				<div class="uk-width-medium-3-10">
 					<div class="uk-panel uk-panel-box">
@@ -90,6 +92,7 @@ function basey_content_after_output() { ?>
 			</div>
 		</div>
 	</section>
+<?php } ?>
 	<div id="offcanvas-menu" class="uk-offcanvas">
 		<div class="uk-offcanvas-bar uk-offcanvas-bar-flip">
 			<?php

@@ -292,15 +292,16 @@ function basey_title() {
 		the_title();
 	}
 }
+
 function assets() {
 
-	wp_enqueue_style('my-css', get_stylesheet_directory_uri('styles/main.css'), false, null);
+	wp_enqueue_style('my-css', get_stylesheet_directory_uri().'/style.css', false, null);
 
   $inline_css = '';
 
   // Section styles
   if ( have_rows('main_builder') ) {
-    $section_id = 1;
+    $i = 1;
     while ( have_rows('main_builder') ) {
       the_row();
 
@@ -308,19 +309,25 @@ function assets() {
 
       // element id
       $inline_css .= "
-#content-section-{$section_id} {
+#content_section_{$i} {
 ";
 
       // set background
       if ( !empty( $styles['background_image'] ) ) {
         $inline_css .= "
 				  background-image: url({$styles['background_image']['url']});
+				  background-size:{$styles['background_style']};
+				  background-position:{$styles['background_position']};
 				";
       }
-
+			if ( !empty( $styles['background_color'] ) ) {
+				$inline_css .= "
+				  background-color: {$styles['background_color']};
+				";
+			}
+			
       // set other styles
       $inline_css .= "
-			  background-color: {$styles['background_color']};
 			  padding: {$styles['padding']};
 			";
 
@@ -329,7 +336,7 @@ function assets() {
   }
   ";
 
-      $section_id++;
+      $i++;
     }
   }
 
@@ -337,23 +344,3 @@ function assets() {
 }
 
 add_action('wp_enqueue_scripts', 'assets');
-
-function my_acf_admin_head() {
-	?>
-	<script type="text/javascript">
-	(function($){
-
-		$(document).ready(function(){
-
-            $( ".-collapse" ).each(function( index ) {
-              $( this ).click();
-            });
-
-        });
-
-	})(jQuery);
-	</script>
-	<?php
-}
-
-add_action('acf/input/admin_head', 'my_acf_admin_head');
