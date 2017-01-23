@@ -325,7 +325,7 @@ function assets() {
 				  background-color: {$styles['background_color']};
 				";
 			}
-			
+
       // set other styles
       $inline_css .= "
 			  padding: {$styles['padding']};
@@ -344,3 +344,15 @@ function assets() {
 }
 
 add_action('wp_enqueue_scripts', 'assets');
+
+if( function_exists('acf_add_options_page') ) {
+
+	acf_add_options_page(array(
+		'page_title' 	=> 'Dyn General Settings',
+		'menu_title'	=> 'Dyn Settings',
+		'menu_slug' 	=> 'dyn-general-settings',
+		'capability'	=> 'edit_posts',
+		'redirect'		=> false
+	));
+
+}
