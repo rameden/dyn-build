@@ -1,0 +1,217 @@
+// ========================================================================
+//  ___              _   _ ___   _  ___ _
+// |   \ _  _ _ _   | | | |_ _| | |/ (_) |_
+// | |) | || | ' \  | |_| || |  | ' <| |  _|
+// |___/ \_, |_||_|  \___/|___| |_|\_\_|\__|
+//       |__/
+// Dyn UI Kit Core Files, Do NOT modify directly, all changes will be lost
+// This file is imported via Chef and compiled via GruntJS within Portal
+//
+// Usage docs: https://github.corp.dyndns.com/pages/uiux/dyn_uikit/
+// ========================================================================
+
+
+// Variables
+// ========================================================================
+
+@stepper-font-size:                             12px;
+@stepper-step-height:                           8px;
+@stepper-step-margin:                           12px;
+
+@stepper-small-font-size:                       10px;
+@stepper-step-mini-height:                      6px;
+@stepper-step-mini-margin:                      8px;
+
+@stepper-background:                            @secondary-color-blue-grey-200;
+@stepper-active-background:                     @secondary-color-cyan-500;
+
+
+/* ========================================================================
+   Component: Stepper
+ ========================================================================== */
+
+[class*="uk-stepper-"] {
+    .uk-h6;
+    font-size: @stepper-font-size;
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+    text-transform: uppercase;
+    width: 100%;
+
+    // Clearfix
+    &:before {
+        content: "";
+        display: table-cell;
+    }
+
+    &:after {
+        content: "";
+        display: table;
+        clear: both;
+    }
+
+    > .uk-step {
+        float: left;
+        padding: 0 0 @stepper-step-height;
+        position: relative;
+        z-index: 10;
+
+        a {
+            .uk-h6;
+            display: block;
+            font-size: @stepper-font-size;
+            margin: 0 0 -@stepper-step-height;
+            padding: 0 0 @stepper-step-height;
+        }
+        + .uk-step {
+            margin-left: @stepper-step-margin;
+        }
+        &:after {
+            background: @stepper-background;
+            bottom: 0;
+            content: "";
+            display: block;
+            height: @stepper-step-height;
+            position: absolute;
+            width: 100%;
+            z-index: -1;
+        }
+        &.uk-active:after {
+            background: @stepper-active-background;
+        }
+        &.uk-active ~ .uk-step {
+            opacity: 0.6;
+            &:after {
+                opacity: 0.6;
+            }
+        }
+    }
+}
+
+.uk-stepper-2 .uk-step {
+    width: calc(~"50% - "(@stepper-step-margin * 1) / 2);
+}
+.uk-stepper-3 .uk-step {
+    width: calc(~"33.33% - "(@stepper-step-margin * 2) / 3);
+}
+.uk-stepper-4 .uk-step {
+    width: calc(~"25% - "(@stepper-step-margin * 3) / 4);
+}
+.uk-stepper-5 .uk-step {
+    width: calc(~"20% - "(@stepper-step-margin * 4) / 5);
+}
+.uk-stepper-6 .uk-step {
+    width: calc(~"16.666% - "(@stepper-step-margin * 5) / 6);
+}
+.uk-stepper-7 .uk-step {
+    width: calc(~"14.285% - "(@stepper-step-margin * 6) / 7);
+}
+.uk-stepper-8 .uk-step {
+    width: calc(~"12.5% - "(@stepper-step-margin * 7) / 8);
+}
+
+@media (max-width: @breakpoint-small-max) {
+    [class*="uk-stepper-"] {
+        font-size: @stepper-small-font-size;
+
+        > .uk-step {
+            a {
+                font-size: @stepper-small-font-size;
+            }
+            &:after {
+                height: @stepper-step-mini-height;
+            }
+        }
+    }
+}
+
+@media (max-width: @breakpoint-mini-max) {
+    [class*="uk-stepper-"] {
+        counter-reset: stepper;
+
+        > .uk-step {
+            padding: 0 0 @stepper-step-mini-height;
+            text-indent: -999em;
+
+            a {
+                margin: 0 0 -@stepper-step-mini-height;
+                padding: 0 0 @stepper-step-mini-height;
+            }
+            + .uk-step {
+                margin-left: @stepper-step-mini-margin;
+            }
+            &:before {
+                content: counter(stepper);
+                counter-increment: stepper;
+                position: absolute;
+                left: 0;
+                text-align: center;
+                text-indent: 0;
+                width: 100%;
+                z-index: -1;
+            }
+            &.uk-active {
+                text-indent: 0;
+
+                &:before {
+                    content: "";
+                }
+            }
+        }
+    }
+
+    .uk-stepper-2 .uk-step {
+        width: calc(~"25% - "(@stepper-step-mini-margin * 1) / 2);
+
+        &.uk-active {
+            width: calc(~"75% - "(@stepper-step-mini-margin * 1) / 2);
+        }
+    }
+    .uk-stepper-3 .uk-step {
+        width: calc(~"16.665% - "(@stepper-step-mini-margin * 2) / 3);
+
+        &.uk-active {
+            width: calc(~"66.666% - "(@stepper-step-mini-margin * 2) / 3);
+        }
+    }
+    .uk-stepper-4 .uk-step {
+        width: calc(~"16.666% - "(@stepper-step-mini-margin * 3) / 4);
+
+        &.uk-active {
+            width: calc(~"50% - "(@stepper-step-mini-margin * 3) / 4);
+        }
+    }
+    .uk-stepper-5 .uk-step {
+        width: calc(~"12.5% - "(@stepper-step-mini-margin * 4) / 5);
+
+        &.uk-active {
+            width: calc(~"50% - "(@stepper-step-mini-margin * 4) / 5);
+        }
+    }
+    .uk-stepper-6 .uk-step {
+        width: calc(~"10% - "(@stepper-step-mini-margin * 5) / 6);
+
+        &.uk-active {
+            width: calc(~"50% - "(@stepper-step-mini-margin * 5) / 6);
+        }
+    }
+    .uk-stepper-7 .uk-step {
+        width: calc(~"10% - "(@stepper-step-mini-margin * 6) / 7);
+
+        &.uk-active {
+            width: calc(~"40% - "(@stepper-step-mini-margin * 6) / 7);
+        }
+    }
+    .uk-stepper-8 .uk-step {
+        width: calc(~"10% - "(@stepper-step-mini-margin * 7) / 8);
+
+        &.uk-active {
+            width: calc(~"30% - "(@stepper-step-mini-margin * 7) / 8);
+        }
+    }
+}
+
+// Hooks
+// ========================================================================
+

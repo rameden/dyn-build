@@ -1,0 +1,51 @@
+// ========================================================================
+//  ___              _   _ ___   _  ___ _
+// |   \ _  _ _ _   | | | |_ _| | |/ (_) |_
+// | |) | || | ' \  | |_| || |  | ' <| |  _|
+// |___/ \_, |_||_|  \___/|___| |_|\_\_|\__|
+//       |__/
+// Dyn UI Kit Core Files, Do NOT modify directly, all changes will be lost
+// This file is imported via Chef and compiled via GruntJS within Portal
+//
+// Usage docs: https://github.corp.dyndns.com/pages/uiux/dyn_uikit/
+// ========================================================================
+
+
+// Variables
+// ========================================================================
+
+@offcanvas-background:                          rgba(0,0,0,0.25);
+
+@offcanvas-bar-width:                           250px;
+
+// Custom Variables
+// ========================================================================
+
+
+/* ========================================================================
+   Component: Offcanvas
+ ========================================================================== */
+
+// Hooks
+// ========================================================================
+
+.hook-offcanvas() {}
+.hook-offcanvas-bar() {}
+.hook-offcanvas-panel() {}
+.hook-offcanvas-misc() {
+    .uk-offcanvas-shadow {
+        box-shadow: inset -3px 0px 2px -2px rgba(0,0,0,0.5);
+        display: block;
+        height: 100%;
+        position: fixed;
+        right: 0;
+        bottom: 0;
+        top: 0;
+        width: 3px;
+        z-index: @offcanvas-z-index + 1;
+    }
+    .uk-offcanvas-bar-flip .uk-offcanvas-shadow {
+        box-shadow: inset 3px 0px 2px -2px rgba(0,0,0,0.5);
+        left: 0;
+    }
+}

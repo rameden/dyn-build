@@ -1,0 +1,175 @@
+// ========================================================================
+//  ___              _   _ ___   _  ___ _
+// |   \ _  _ _ _   | | | |_ _| | |/ (_) |_
+// | |) | || | ' \  | |_| || |  | ' <| |  _|
+// |___/ \_, |_||_|  \___/|___| |_|\_\_|\__|
+//       |__/
+// Dyn UI Kit Core Files, Do NOT modify directly, all changes will be lost
+// This file is imported via Chef and compiled via GruntJS within Portal
+//
+// Usage docs: https://github.corp.dyndns.com/pages/uiux/dyn_uikit/
+// ========================================================================
+
+
+// Variables
+// ========================================================================
+
+@miscellaneous-background-color-success:        lighten(@accent-color-light-green-50, 2%); // From panel component
+@miscellaneous-background-color-danger:         lighten(@utility-color-danger, 31.5%); // From panel component
+
+
+/* ========================================================================
+   Component: Miscellaneous
+ ========================================================================== */
+
+/* Cursor modifiers
+ ========================================================================== */
+.uk-cursor-auto {
+    cursor: auto !important;
+}
+.uk-cursor-default {
+    cursor: default !important;
+}
+.uk-cursor-none {
+    cursor: none !important;
+}
+
+.uk-cursor-contextmenu {
+    cursor: context-menu !important;
+}
+.uk-cursor-help {
+    cursor: help !important;
+}
+.uk-cursor-pointer {
+    cursor: pointer !important;
+}
+.uk-cursor-progress {
+    cursor: progress !important;
+}
+.uk-cursor-wait {
+    cursor: wait !important;
+}
+
+.uk-cursor-cell {
+    cursor: cell !important;
+}
+.uk-cursor-crosshair {
+    cursor: crosshair !important;
+}
+.uk-cursor-text {
+    cursor: text !important;
+}
+.uk-cursor-verticaltext {
+    cursor: vertical-text !important;
+}
+
+.uk-cursor-alias {
+    cursor: alias !important;
+}
+.uk-cursor-copy {
+    cursor: copy !important;
+}
+.uk-cursor-move {
+    cursor: move !important;
+}
+.uk-cursor-nodrop {
+    cursor: no-drop !important;
+}
+.uk-cursor-notallowed {
+    cursor: not-allowed !important;
+}
+
+.uk-cursor-allscroll {
+    cursor: all-scroll !important;
+}
+.uk-cursor-colresize {
+    cursor: col-resize !important;
+}
+.uk-cursor-rowresize {
+    cursor: row-resize !important;
+}
+
+.uk-cursor-nresize {
+    cursor: n-resize !important;
+}
+.uk-cursor-eresize {
+    cursor: e-resize !important;
+}
+.uk-cursor-sresize {
+    cursor: s-resize !important;
+}
+.uk-cursor-wresize {
+    cursor: w-resize !important;
+}
+.uk-cursor-neresize {
+    cursor: ne-resize !important;
+}
+.uk-cursor-nwresize {
+    cursor: nw-resize !important;
+}
+.uk-cursor-seresize {
+    cursor: se-resize !important;
+}
+.uk-cursor-swresize {
+    cursor: sw-resize !important;
+}
+
+.uk-cursor-ewresize {
+    cursor: ew-resize !important;
+}
+.uk-cursor-nsresize {
+    cursor: ns-resize !important;
+}
+.uk-cursor-neswresize {
+    cursor: nesw-resize !important;
+}
+.uk-cursor-nwseresize {
+    cursor: nwse-resize !important;
+}
+
+.uk-cursor-zoomin {
+    cursor: zoom-in !important;
+}
+.uk-cursor-zoomout {
+    cursor: zoom-out !important;
+}
+
+.uk-cursor-grab {
+    cursor: grab !important;
+}
+.uk-cursor-grabbing {
+    cursor: grabbing !important;
+}
+
+
+/* Selection modifiers
+ ========================================================================== */
+.uk-userselect-none {
+    -webkit-user-select: none;  /* Chrome all / Safari all */
+    -moz-user-select: none;     /* Firefox all */
+    -ms-user-select: none;      /* IE 10+ */
+    user-select: none;          /* Likely future */
+}
+
+
+/* Link misc modifiers
+ ========================================================================== */
+a {
+    &[disabled], &.uk-disabled {
+        cursor: default !important;
+        pointer-events: none !important;
+    }
+}
+
+
+/* Background color modifiers
+ ========================================================================== */
+.uk-background-success {
+    background-color: @miscellaneous-background-color-success;
+}
+.uk-background-danger {
+    background-color: @miscellaneous-background-color-danger;
+}
+
+// Hooks
+// ========================================================================

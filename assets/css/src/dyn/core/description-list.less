@@ -1,0 +1,104 @@
+// ========================================================================
+//  ___              _   _ ___   _  ___ _
+// |   \ _  _ _ _   | | | |_ _| | |/ (_) |_
+// | |) | || | ' \  | |_| || |  | ' <| |  _|
+// |___/ \_, |_||_|  \___/|___| |_|\_\_|\__|
+//       |__/
+// Dyn UI Kit Core Files, Do NOT modify directly, all changes will be lost
+// This file is imported via Chef and compiled via GruntJS within Portal
+//
+// Usage docs: https://github.corp.dyndns.com/pages/uiux/dyn_uikit/
+// ========================================================================
+
+
+// Variables
+// ========================================================================
+
+@description-list-horizontal-width:             50%;
+@description-list-horizontal-margin-left:       0;
+
+// Custom Variables
+// ========================================================================
+
+@description-list-term-color:                   @secondary-color-dark-cyan-500;
+@description-list-term-font-weight:             600;
+@description-list-margin:                       @base-margin-vertical;
+
+@description-list-horizontal-border-width:      1px;
+@description-list-horizontal-border:            @utility-color-separator;
+
+@description-list-horizontal-line-height:       24px;
+@description-list-horizontal-padding-vertical:  7px;
+
+
+/* ========================================================================
+   Component: Description List
+ ========================================================================== */
+
+// Hooks
+// ========================================================================
+
+.hook-description-list-misc() {
+    dt {
+        font-weight: @description-list-term-font-weight;
+    }
+
+    // Basic/default styling (no class used)
+    dl:not(.uk-description-list-horizontal):not(.uk-description-list-line) {
+        dt {
+            color: @description-list-term-color;
+            text-transform: uppercase;
+        }
+        dd + dt {
+            margin-top: @description-list-margin;
+        }
+    }
+
+
+    // Horizontal styling
+    .uk-description-list-horizontal {
+        line-height: @description-list-horizontal-line-height;
+
+        .uk-grid;
+        .uk-grid-collapse;
+
+        > dt, > dd {
+            border-bottom: @description-list-horizontal-border-width solid @description-list-horizontal-border;
+        }
+        > dt {
+            border-bottom-width: 0;
+            padding: @description-list-horizontal-padding-vertical 0 0;
+        }
+        > dd {
+            padding: 0 0 @description-list-horizontal-padding-vertical;
+        }
+
+        @media (min-width: @breakpoint-small-max) {
+            overflow: visible;
+
+            > dt, > dd {
+                padding: @description-list-horizontal-padding-vertical 0;
+            }
+            > dt {
+                border-bottom-width: @description-list-horizontal-border-width;
+                // Reset UIkit's overflow properties
+                // for this class
+                overflow: visible;
+                text-overflow: clip;
+                white-space: normal;
+            }
+            > dd {
+                float: right;
+                text-align: right;
+                width: @description-list-horizontal-width;
+            }
+        }
+
+        @media (max-width: @breakpoint-small-max) {
+            > dt, > dd {
+                width: 100%;
+            }
+        }
+    }
+
+}

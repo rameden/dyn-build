@@ -1,0 +1,80 @@
+// ========================================================================
+//  ___              _   _ ___   _  ___ _
+// |   \ _  _ _ _   | | | |_ _| | |/ (_) |_
+// | |) | || | ' \  | |_| || |  | ' <| |  _|
+// |___/ \_, |_||_|  \___/|___| |_|\_\_|\__|
+//       |__/
+// Dyn UI Kit Core Files, Do NOT modify directly, all changes will be lost
+// This file is imported via Chef and compiled via GruntJS within Portal
+//
+// Usage docs: https://github.corp.dyndns.com/pages/uiux/dyn_uikit/
+// ========================================================================
+
+
+// Variables
+// ========================================================================
+
+@modal-background:                              rgba(0,0,0,0.25);
+
+@modal-dialog-margin-vertical:                  120px;
+@modal-dialog-padding:                          30px;
+@modal-dialog-width:                            700px;
+
+// Custom Variables
+// ========================================================================
+
+@modal-dialog-padding-vertical:                 25px;
+
+@modal-border-radius:                           3px;
+@modal-box-shadow:                              0 0 2px 0 rgba(0,0,0,0.75);
+
+@modal-header-border-width:                     1px;
+@modal-header-border-color:                     @utility-color-separator;
+
+@modal-header-margin-top:                       -(@modal-dialog-padding / 2);
+@modal-header-margin-horizontal:                0;
+@modal-header-margin-bottom:                    @modal-dialog-padding;
+@modal-header-padding-vertical:                 (@modal-dialog-padding / 2);
+@modal-header-padding-horizontal:               0;
+
+@modal-footer-background:                       @secondary-color-grey-160;
+
+@modal-footer-margin-top:                       @modal-dialog-padding;
+@modal-footer-margin-horizontal:                -@modal-dialog-padding;
+@modal-footer-margin-bottom:                    -@modal-dialog-padding-vertical;
+@modal-footer-padding-vertical:                 (@modal-dialog-padding / 2);
+@modal-footer-padding-horizontal:               @modal-dialog-padding;
+
+@modal-close-font-size:                         24px;
+
+
+/* ========================================================================
+   Component: Modal
+ ========================================================================== */
+
+// Hooks
+// ========================================================================
+
+.hook-modal-dialog() {
+    border-radius: @modal-border-radius;
+    box-shadow: @modal-box-shadow;
+    padding: @modal-dialog-padding-vertical @modal-dialog-padding;
+}
+.hook-modal-header() {
+    border-bottom: @modal-header-border-width solid @modal-header-border-color;
+    margin: @modal-header-margin-top @modal-header-margin-horizontal @modal-header-margin-bottom;
+    padding: @modal-header-padding-vertical @modal-header-padding-horizontal;
+}
+.hook-modal-footer() {
+    background: @modal-footer-background;
+    border-radius: 0 0 @modal-border-radius @modal-border-radius;
+    margin: @modal-footer-margin-top @modal-footer-margin-horizontal @modal-footer-margin-bottom;
+    padding: @modal-footer-padding-vertical @modal-footer-padding-horizontal;
+}
+.hook-modal-misc() {
+    // Duplicated/customized rule because there's no hook
+    .uk-modal-dialog > .uk-close:first-child {
+        font-size: @modal-close-font-size;
+        margin: (@modal-dialog-padding - @modal-dialog-padding-vertical) 0 0;
+    }
+}

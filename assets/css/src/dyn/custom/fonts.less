@@ -1,0 +1,60 @@
+// ========================================================================
+//  ___              _   _ ___   _  ___ _
+// |   \ _  _ _ _   | | | |_ _| | |/ (_) |_
+// | |) | || | ' \  | |_| || |  | ' <| |  _|
+// |___/ \_, |_||_|  \___/|___| |_|\_\_|\__|
+//       |__/
+// Dyn UI Kit Core Files, Do NOT modify directly, all changes will be lost
+// This file is imported via Chef and compiled via GruntJS within Portal
+//
+// Usage docs: https://github.corp.dyndns.com/pages/uiux/dyn_uikit/
+// ========================================================================
+
+
+/* ========================================================================
+   Dyn Fonts
+   ======================================================================== */
+
+// Font Face Generator
+// ========================================================================
+@font-base-path: "../fonts";
+.FontFace(@family; @style; @weight; @directory; @filename) {
+    @font-face {
+        font-family: '@{family}';
+        src: url('@{font-base-path}/@{directory}/@{filename}.eot');
+        src: url('@{font-base-path}/@{directory}/@{filename}.eot?#iefix') format('embedded-opentype'),
+             url('@{font-base-path}/@{directory}/@{filename}.woff2') format('woff2'),
+             url('@{font-base-path}/@{directory}/@{filename}.woff') format('woff'),
+             url('@{font-base-path}/@{directory}/@{filename}.ttf') format('truetype');
+        font-style: @style;
+        font-weight: @weight;
+    }
+}
+.test-build-dyn{
+  font-size:14px;
+}
+.FontFace(@family: Avenir, @style: normal, @weight: 300, @directory: Avenir, @filename: AvenirLTW04_35Light);
+.FontFace(@family: Avenir, @style: italic, @weight: 300, @directory: Avenir, @filename: AvenirLTW04_35LightOblique);
+.FontFace(@family: Avenir, @style: normal, @weight: normal, @directory: Avenir, @filename: AvenirLTW01_45Book);
+.FontFace(@family: Avenir, @style: italic, @weight: normal, @directory: Avenir, @filename: AvenirLTW01_45BookOblique);
+.FontFace(@family: Avenir, @style: normal, @weight: 500, @directory: Avenir, @filename: AvenirLTW04_55Roman);
+.FontFace(@family: Avenir, @style: italic, @weight: 500, @directory: Avenir, @filename: AvenirLTW04_55RomanOblique);
+.FontFace(@family: Avenir, @style: normal, @weight: 700, @directory: Avenir, @filename: AvenirLTW04_65Medium);
+.FontFace(@family: Avenir, @style: italic, @weight: 700, @directory: Avenir, @filename: AvenirLTW04_65MediumOblique);
+.FontFace(@family: Avenir, @style: normal, @weight: 800, @directory: Avenir, @filename: AvenirLTW01_85Heavy);
+.FontFace(@family: Avenir, @style: italic, @weight: 800, @directory: Avenir, @filename: AvenirLTW01_85HeavyOblique);
+.FontFace(@family: Avenir, @style: normal, @weight: 900, @directory: Avenir, @filename: AvenirLTW04_95Black);
+.FontFace(@family: Avenir, @style: italic, @weight: 900, @directory: Avenir, @filename: AvenirLTW04_95BlackOblique);
+
+.FontFace(@family: Source Sans Pro, @style: normal, @weight: 200, @directory: SourceSansPro, @filename: SourceSansPro-ExtraLight);
+.FontFace(@family: Source Sans Pro, @style: italic, @weight: 200, @directory: SourceSansPro, @filename: SourceSansPro-ExtraLightIt);
+.FontFace(@family: Source Sans Pro, @style: normal, @weight: 300, @directory: SourceSansPro, @filename: SourceSansPro-Light);
+.FontFace(@family: Source Sans Pro, @style: italic, @weight: 300, @directory: SourceSansPro, @filename: SourceSansPro-LightIt);
+.FontFace(@family: Source Sans Pro, @style: normal, @weight: normal, @directory: SourceSansPro, @filename: SourceSansPro-Regular);
+.FontFace(@family: Source Sans Pro, @style: italic, @weight: normal, @directory: SourceSansPro, @filename: SourceSansPro-It);
+.FontFace(@family: Source Sans Pro, @style: normal, @weight: 600, @directory: SourceSansPro, @filename: SourceSansPro-Semibold);
+.FontFace(@family: Source Sans Pro, @style: italic, @weight: 600, @directory: SourceSansPro, @filename: SourceSansPro-SemiboldIt);
+.FontFace(@family: Source Sans Pro, @style: normal, @weight: bold, @directory: SourceSansPro, @filename: SourceSansPro-Bold);
+.FontFace(@family: Source Sans Pro, @style: italic, @weight: bold, @directory: SourceSansPro, @filename: SourceSansPro-BoldIt);
+.FontFace(@family: Source Sans Pro, @style: normal, @weight: 900, @directory: SourceSansPro, @filename: SourceSansPro-Black);
+.FontFace(@family: Source Sans Pro, @style: italic, @weight: 900, @directory: SourceSansPro, @filename: SourceSansPro-BlackIt);

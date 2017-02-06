@@ -1,0 +1,276 @@
+// ========================================================================
+//  ___              _   _ ___   _  ___ _
+// |   \ _  _ _ _   | | | |_ _| | |/ (_) |_
+// | |) | || | ' \  | |_| || |  | ' <| |  _|
+// |___/ \_, |_||_|  \___/|___| |_|\_\_|\__|
+//       |__/
+// Dyn UI Kit Core Files, Do NOT modify directly, all changes will be lost
+// This file is imported via Chef and compiled via GruntJS within Portal
+//
+// Usage docs: https://github.corp.dyndns.com/pages/uiux/dyn_uikit/
+// ========================================================================
+
+
+// Variables
+// ========================================================================
+
+@chosen-height:                                    @form-height;
+@chosen-border:                                    @form-border;
+@chosen-border-radius:                             @form-border-radius;
+@chosen-border-width:                              @form-border-width;
+@chosen-background:                                @form-background;
+@chosen-disabled-color:                            @form-placeholder-color;
+@chosen-box-shadow-color:                          @form-focus-border;
+
+@chosen-focus-border:                              @form-focus-border;
+@chosen-focus-background:                          @form-focus-background;
+
+@chosen-group-choice-padding-left:                 16px;
+
+@chosen-choice-line-height:                        22px;
+@chosen-choice-padding:                            4px 6px;
+@chosen-choice-highlight-background:               @secondary-color-blue-grey-500;
+
+@chosen-transition-function:                       @form-transition-function;
+@chosen-transition-duration:                       @form-transition-duration;
+
+@chosen-arrow-closed-background-position:          0 8px;
+@chosen-arrow-open-background-position:            -18px 8px;
+@chosen-search-background-position:                -26px -23px;
+
+@chosen-single-deselect-background-position:       -41px 1px;
+@chosen-single-deselect-hover-background-position: -41px -11px;
+
+@chosen-single-padding:                            5px 0 5px 11px;
+@chosen-single-margin-right:                       @form-select-padding-right;
+@chosen-single-search-height:                      @form-height;
+@chosen-single-search-margin:                      4px 6px;
+@chosen-single-search-padding:                     6px 6px 6px 22px;
+
+@chosen-single-arrow-position-right:               2px;
+@chosen-single-deselect-position-top:              11px;
+
+@chosen-multi-padding-horizontal:                  6px;
+@chosen-multi-padding-vertical:                    2px;
+@chosen-multi-search-margin-vertical:              1px;
+
+@chosen-multi-choice-color:                        #fff;
+@chosen-multi-choice-font-size:                    14px;
+@chosen-multi-choice-font-weight:                  normal;
+
+@chosen-multi-choice-border:                       @secondary-color-blue-grey-500;
+@chosen-multi-choice-border-radius:                2px;
+@chosen-multi-choice-margin:                       2px 6px 2px -2px;
+@chosen-multi-choice-padding:                      6px 26px 6px 8px;
+@chosen-multi-choice-line-height:                  12px;
+
+@chosen-multi-deselect-background-position:        0 -23px;
+@chosen-multi-deselect-hover-background-position:  0 -35px;
+
+@chosen-multi-choice-background:                   @secondary-color-blue-grey-500;
+@chosen-multi-choice-focus-border:                 @secondary-color-blue-grey-900;
+@chosen-multi-choice-focus-background:             @secondary-color-blue-grey-700;
+
+@chosen-multi-choice-disabled-background:          @form-disabled-background;
+@chosen-multi-choice-disabled-color:               @form-disabled-color;
+
+@chosen-multi-deselect-position-right:             6px;
+@chosen-multi-deselect-position-top:               6px;
+
+
+/* ========================================================================
+   Component: Chosen
+ ========================================================================== */
+
+.chosen-container {
+    font-size: 1rem; // Reset to base size
+
+    .chosen-drop {
+        border-color: @chosen-border;
+        box-shadow:
+            0 2px 2px -2px @chosen-box-shadow-color,
+            2px 1px 2px -2px @chosen-box-shadow-color,
+            -2px 1px 2px -2px @chosen-box-shadow-color;
+        transition: border-color @chosen-transition-function @chosen-transition-duration;
+    }
+
+    .chosen-results {
+        li {
+            line-height: @chosen-choice-line-height;
+            padding: @chosen-choice-padding;
+        }
+        li.disabled-result {
+            color: @chosen-disabled-color;
+        }
+        li.highlighted {
+            background: @chosen-choice-highlight-background;
+        }
+        li em {
+            color: inherit;
+            font-weight: bold;
+        }
+        li.group-option {
+            padding-left: @chosen-group-choice-padding-left;
+        }
+    }
+}
+
+.chosen-container-single {
+    .chosen-single {
+        background: @chosen-background;
+        border: @chosen-border-width solid @chosen-border;
+        border-radius: @chosen-border-radius;
+        box-shadow: none;
+        height: @chosen-height;
+        padding: @chosen-single-padding;
+        transition:
+            background-color @chosen-transition-function @chosen-transition-duration,
+            border-color @chosen-transition-function @chosen-transition-duration;
+
+        span {
+            margin-right: @chosen-single-margin-right;
+        }
+
+        abbr {
+            background: url('../img/chosen-sprite.png') @chosen-single-deselect-background-position no-repeat;
+            top: @chosen-single-deselect-position-top;
+            right: @chosen-single-margin-right;
+        }
+        abbr:hover {
+            background-position: @chosen-single-deselect-hover-background-position;
+        }
+
+        div {
+            right: @chosen-single-arrow-position-right;
+            b {
+                background-position: @chosen-arrow-closed-background-position;
+            }
+        }
+    }
+    &.chosen-disabled .chosen-single abbr:hover {
+        background-position: @chosen-single-deselect-hover-background-position;
+    }
+    .chosen-search {
+        padding: @chosen-single-search-margin;
+
+        input[type="text"] {
+            background: @form-focus-background url('../img/chosen-sprite.png') no-repeat @chosen-search-background-position;
+            border: @chosen-border-width solid @chosen-focus-border;
+            border-radius: @chosen-border-radius;
+            font: inherit;
+            height: @chosen-single-search-height;
+            padding: @chosen-single-search-padding;
+        }
+    }
+}
+
+
+.chosen-container-multi .chosen-choices {
+    background: @chosen-background;
+    border: @chosen-border-width solid @chosen-border;
+    border-radius: @chosen-border-radius;
+    min-height: @chosen-height;
+    padding: @chosen-multi-padding-vertical @chosen-multi-padding-horizontal;
+    transition:
+        background-color @chosen-transition-function @chosen-transition-duration,
+        border-color @chosen-transition-function @chosen-transition-duration;
+
+    li.search-field input[type="text"] {
+        font: inherit;
+        height: @chosen-height - (2 * @chosen-border-width) - (2 * @chosen-multi-padding-vertical) - (2 * @chosen-multi-search-margin-vertical);
+        margin: @chosen-multi-search-margin-vertical 0;
+    }
+
+    li.search-choice {
+        background: @chosen-multi-choice-background;
+        border: @chosen-border-width solid @chosen-multi-choice-border;
+        border-radius: @chosen-multi-choice-border-radius;
+        box-shadow: none;
+        color: @chosen-multi-choice-color;
+        font-size: @chosen-multi-choice-font-size;
+        font-weight: @chosen-multi-choice-font-weight;
+        line-height: @chosen-multi-choice-line-height;
+        margin: @chosen-multi-choice-margin;
+        padding: @chosen-multi-choice-padding;
+
+        .search-choice-close {
+            background: url('../img/chosen-sprite.png') @chosen-multi-deselect-background-position no-repeat;
+            position: absolute;
+            right: @chosen-multi-deselect-position-right;
+            top: @chosen-multi-deselect-position-top;
+
+            &:hover {
+                background-position: @chosen-multi-deselect-hover-background-position;
+            }
+        }
+    }
+    li.search-choice-disabled {
+        background: @chosen-multi-choice-disabled-background;
+        color: @chosen-multi-choice-disabled-color;
+    }
+    li.search-choice-focus {
+        background: @chosen-multi-choice-focus-background;
+        border-color: @chosen-multi-choice-focus-border;
+
+        .search-choice-close {
+            background-position: @chosen-multi-deselect-hover-background-position;
+        }
+    }
+}
+
+
+.chosen-container-active {
+    box-shadow: 0 0 2px 0 @chosen-box-shadow-color;
+
+    &.chosen-with-drop {
+        box-shadow: none;
+
+        .chosen-single {
+            background: @chosen-background;
+            border-color: @chosen-focus-border;
+            box-shadow:
+                0 2px 2px 0 @chosen-box-shadow-color,
+                0 -2px 2px -2px @chosen-box-shadow-color;
+
+            div b {
+                background-position: @chosen-arrow-open-background-position;
+            }
+        }
+        .chosen-drop {
+            border-color: @chosen-focus-border;
+        }
+        .chosen-choices {
+            border-radius: @chosen-border-radius @chosen-border-radius 0 0;
+            box-shadow:
+                0 3px 2px 0 @chosen-box-shadow-color,
+                0 -2px 2px -2px @chosen-box-shadow-color;
+        }
+    }
+    .chosen-single, .chosen-choices {
+        background: @chosen-focus-background;
+        border: @chosen-border-width solid @chosen-focus-border;
+    }
+    .chosen-choices {
+        box-shadow: 0 0 2px 0 @chosen-box-shadow-color;
+    }
+    .chosen-drop {
+        border-color: @chosen-focus-border;
+        border-radius: 0 0 @chosen-border-radius @chosen-border-radius;
+    }
+}
+
+@media only screen and (-webkit-min-device-pixel-ratio: 1.5), only screen and (min-resolution: 144dpi), only screen and (min-resolution: 1.5dppx) {
+    .chosen-rtl .chosen-search input[type="text"],
+    .chosen-container-single .chosen-single abbr,
+    .chosen-container-single .chosen-single div b,
+    .chosen-container-single .chosen-search input[type="text"],
+    .chosen-container-multi .chosen-choices .search-choice .search-choice-close,
+    .chosen-container .chosen-results-scroll-down span,
+    .chosen-container .chosen-results-scroll-up span {
+        background-size: 52px 46px !important;
+    }
+}
+
+// Hooks
+// ========================================================================
+

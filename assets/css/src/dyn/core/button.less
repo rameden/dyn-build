@@ -1,0 +1,386 @@
+// ========================================================================
+//  ___              _   _ ___   _  ___ _
+// |   \ _  _ _ _   | | | |_ _| | |/ (_) |_
+// | |) | || | ' \  | |_| || |  | ' <| |  _|
+// |___/ \_, |_||_|  \___/|___| |_|\_\_|\__|
+//       |__/
+// Dyn UI Kit Core Files, Do NOT modify directly, all changes will be lost
+// This file is imported via Chef and compiled via GruntJS within Portal
+//
+// Usage docs: https://github.corp.dyndns.com/pages/uiux/dyn_uikit/
+// ========================================================================
+//
+// NOTE: Due to some UIkit bug(s), <input type="submit|reset|button">
+//       don't work correctly.
+//       See:
+//       * https://github.com/uikit/uikit/issues/671
+//       * https://github.com/uikit/uikit/issues/805
+//       * https://github.com/uikit/uikit/issues/1321
+//       * https://github.com/uikit/uikit/pull/709
+//       Bug reintroduced with this commit:
+//       https://github.com/uikit/uikit/commit/6e2e6a2be410e10c70215a0198954a2ac59d65bfe
+
+
+// Variables
+// ========================================================================
+
+@button-height:                                 36px;
+@button-mini-height:                            22px;
+@button-small-height:                           30px;
+@button-large-height:                           44px;
+
+@button-line-height:                            36px;
+@button-mini-line-height:                       22px;
+@button-small-line-height:                      30px;
+@button-large-line-height:                      44px;
+
+@button-mini-font-size:                         12px;
+@button-small-font-size:                        14px;
+@button-large-font-size:                        18px;
+
+@button-padding-horizontal:                     16px;
+@button-mini-padding-horizontal:                12px;
+@button-small-padding-horizontal:               14px;
+@button-large-padding-horizontal:               25px;
+
+@button-background:                             @utility-color-secondary;
+@button-hover-background:                       lighten(@button-background, 3%);
+@button-active-background:                      darken(@button-background, 3%);
+
+@button-primary-background:                     @utility-color-primary;
+@button-primary-hover-background:               lighten(@button-primary-background, 4%);
+@button-primary-active-background:              darken(@button-primary-background, 4%);
+
+@button-success-background:                     @utility-color-success;
+@button-success-hover-background:               lighten(@button-success-background, 4%);
+@button-success-active-background:              darken(@button-success-background, 4%);
+
+@button-danger-background:                      @utility-color-danger;
+@button-danger-hover-background:                lighten(@button-danger-background, 5%);
+@button-danger-active-background:               darken(@button-danger-background, 5%);
+
+@button-disabled-background:                    tint(@button-background, 70%);
+@button-disabled-color:                         tint(@button-color, 60%);
+
+@button-link-color:                             @secondary-color-cyan-500;
+@button-link-hover-color:                       @secondary-color-cyan-700;
+@button-link-disabled-color:                    @secondary-color-grey-900;
+
+// Custom Variables
+// ========================================================================
+
+@button-border-width:                           1px;
+@button-border-radius:                          2px;
+
+/* Begin REDEFINE line-heights to take border into account */
+@button-line-height:                            36px - (2 * @button-border-width);
+@button-mini-line-height:                       22px - (2 * @button-border-width);
+@button-small-line-height:                      30px - (2 * @button-border-width);
+@button-large-line-height:                      44px - (2 * @button-border-width);
+/* End REDEFINE line-heights to take border into account */
+
+@button-border-color:                           darken(@button-background, 10%);
+@button-hover-border-color:                     darken(@button-hover-background, 10%);
+@button-active-border-color:                    darken(@button-active-background, 12.5%);
+
+@button-primary-border-color:                   darken(@button-primary-background, 10%);
+@button-primary-hover-border-color:             darken(@button-primary-hover-background, 10%);
+@button-primary-active-border-color:            darken(@button-primary-active-background, 12.5%);
+
+@button-primary-disabled-background:            tint(@button-primary-background, 70%);
+@button-primary-disabled-color:                 @button-primary-color;
+@button-primary-disabled-border-color:          tint(@button-primary-border-color, 70%);
+
+@button-success-border-color:                   darken(@button-success-background, 7.5%);
+@button-success-hover-border-color:             darken(@button-success-hover-background, 7.5%);
+@button-success-active-border-color:            darken(@button-success-active-background, 10%);
+
+@button-success-disabled-background:            tint(@button-success-background, 70%);
+@button-success-disabled-color:                 @button-success-color;
+@button-success-disabled-border-color:          tint(@button-success-border-color, 70%);
+
+@button-danger-border-color:                    darken(@button-danger-background, 22.5%);
+@button-danger-hover-border-color:              darken(@button-danger-hover-background, 22.5%);
+@button-danger-active-border-color:             darken(@button-danger-active-background, 25%);
+
+@button-danger-disabled-background:             tint(@button-danger-background, 70%);
+@button-danger-disabled-color:                  @button-danger-color;
+@button-danger-disabled-border-color:           tint(@button-danger-border-color, 70%);
+
+@button-disabled-border-color:                  darken(@button-disabled-background, 10%);
+
+@button-link-border-color:                      transparent;
+
+@button-callout-background:                     @utility-color-callout;
+@button-callout-border-color:                   darken(@button-callout-background, 5%);
+@button-callout-color:                          #444;
+@button-callout-hover-background:               lighten(@button-callout-background, 12.5%);
+@button-callout-hover-border-color:             darken(@button-callout-hover-background, 15%);
+@button-callout-hover-color:                    #444;
+@button-callout-active-background:              darken(@button-callout-background, 2.5%);
+@button-callout-active-border-color:            darken(@button-callout-active-background, 5%);
+@button-callout-active-color:                   #444;
+
+@button-callout-disabled-background:            tint(@button-callout-background, 70%);
+@button-callout-disabled-color:                 tint(@button-callout-color, 60%);
+@button-callout-disabled-border-color:          tint(@button-callout-border-color, 70%);
+
+
+@button-group-switch-border-width:              1px;
+@button-group-switch-border-radius:             999px; // Per spec, this guarantees a quarter circle
+
+@button-group-switch-line-height:               @button-line-height;
+@button-group-switch-mini-line-height:          @button-mini-line-height;
+@button-group-switch-small-line-height:         @button-small-line-height;
+@button-group-switch-large-line-height:         @button-large-line-height;
+
+@button-group-switch-font-size:                 14px;
+@button-group-switch-mini-font-size:            10px;
+@button-group-switch-small-font-size:           12px;
+@button-group-switch-large-font-size:           16px;
+
+@button-group-switch-background:                @secondary-color-grey-160;
+@button-group-switch-border-color:              @secondary-color-grey-300;
+
+@button-group-switch-inactive-color:            @secondary-color-grey-780;
+@button-group-switch-inactive-hover-color:      @secondary-color-grey-1200;
+@button-group-switch-inactive-active-color:     @secondary-color-grey-1200;
+
+@button-group-switch-active-background:         @secondary-color-blue-grey-500;
+@button-group-switch-active-hover-background:   @secondary-color-blue-grey-400;
+@button-group-switch-active-active-background:  @secondary-color-blue-grey-600;
+
+@button-group-switch-active-color:              #fff;
+
+
+/* ========================================================================
+   Component: Button
+ ========================================================================== */
+
+/* Color modifiers
+========================================================================== */
+
+/*
+ * Custom Modifier: `uk-button-callout`
+ */
+
+.uk-button-callout {
+    background-color: @button-callout-background;
+    border-color: @button-callout-border-color;
+    color: @button-callout-color;
+
+    &:disabled {
+        background-color: @button-callout-disabled-background;
+        border-color: @button-callout-disabled-border-color;
+        color: @button-callout-disabled-color;
+    }
+
+    .hook-button-callout;
+}
+
+/* Hover */
+.uk-button-callout:hover,
+.uk-button-callout:focus {
+    background-color: @button-callout-hover-background;
+    border-color: @button-callout-hover-border-color;
+    color: @button-callout-hover-color;
+
+    // Need these extra overrides for custom buttons
+    // because they come after disabled styles in the UIkit button file
+    &:disabled {
+        background-color: @button-callout-disabled-background;
+        border-color: @button-callout-disabled-border-color;
+        color: @button-callout-disabled-color;
+    }
+
+    .hook-button-callout-hover;
+}
+
+/* Active */
+.uk-button-callout:active,
+.uk-button-callout.uk-active {
+    background-color: @button-callout-active-background;
+    border-color: @button-callout-active-border-color;
+    color: @button-callout-active-color;
+
+    // Need these extra overrides for custom buttons
+    // because they come after disabled styles in the UIkit button file
+    &:disabled {
+        background-color: @button-callout-disabled-background;
+        border-color: @button-callout-disabled-border-color;
+        color: @button-callout-disabled-color;
+    }
+
+    .hook-button-callout-active;
+}
+
+/* Switch group modifier
+========================================================================== */
+
+.uk-button-group-switch {
+    background: @button-group-switch-background;
+    border: @button-group-switch-border-width solid @button-group-switch-border-color;
+    border-radius: @button-group-switch-border-radius;
+
+    > .uk-button {
+        .uk-h6;
+
+        background: transparent;
+        border-color: transparent;
+        border-radius: @button-group-switch-border-radius;
+        color: @button-group-switch-inactive-color;
+        font-size: @button-group-switch-font-size;
+        line-height: @button-group-switch-line-height;
+
+        &:hover,
+        &:focus {
+            color: @button-group-switch-inactive-hover-color;
+        }
+        &:active {
+            color: @button-group-switch-inactive-active-color;
+        }
+
+        &.uk-active {
+            background-color: @button-group-switch-active-background;
+            background-clip: padding-box;
+            color: @button-group-switch-active-color;
+
+            &:hover,
+            &:focus {
+                background-color: @button-group-switch-active-hover-background;
+            }
+            &:active {
+                background-color: @button-group-switch-active-active-background;
+            }
+        }
+    }
+
+
+    /* Size modifiers
+     ========================================================================== */
+
+    > .uk-button-mini {
+        font-size: @button-group-switch-mini-font-size;
+        line-height: @button-group-switch-mini-line-height;
+    }
+
+    > .uk-button-small {
+        font-size: @button-group-switch-small-font-size;
+        line-height: @button-group-switch-small-line-height;
+    }
+
+    > .uk-button-large {
+        font-size: @button-group-switch-large-font-size;
+        line-height: @button-group-switch-large-line-height;
+    }
+}
+
+
+// Hooks
+// ========================================================================
+
+.hook-button() {
+    border: 1px solid @button-border-color;
+    border-radius: @button-border-radius;
+    font-weight: @base-body-font-weight;
+}
+.hook-button-hover() {
+    border-color: @button-hover-border-color;
+}
+.hook-button-active() {
+    border-color: @button-active-border-color;
+}
+.hook-button-primary() {
+    border-color: @button-primary-border-color;
+
+    // Need the extra `.uk-button` class to cause this to be a more
+    // specific style than the default :disabled rule.
+    &.uk-button:disabled {
+        background-color: @button-primary-disabled-background;
+        border-color: @button-primary-disabled-border-color;
+        color: @button-primary-disabled-color;
+    }
+}
+.hook-button-primary-hover() {
+    border-color: @button-primary-hover-border-color;
+}
+.hook-button-primary-active() {
+    border-color: @button-primary-active-border-color;
+}
+.hook-button-success() {
+    border-color: @button-success-border-color;
+
+    // Need the extra `.uk-button` class to cause this to be a more
+    // specific style than the default :disabled rule.
+    &.uk-button:disabled {
+        background-color: @button-success-disabled-background;
+        border-color: @button-success-disabled-border-color;
+        color: @button-success-disabled-color;
+    }
+}
+.hook-button-success-hover() {
+    border-color: @button-success-hover-border-color;
+}
+.hook-button-success-active() {
+    border-color: @button-success-active-border-color;
+}
+.hook-button-danger() {
+    border-color: @button-danger-border-color;
+
+    // Need the extra `.uk-button` class to cause this to be a more
+    // specific style than the default :disabled rule.
+    &.uk-button:disabled {
+        background-color: @button-danger-disabled-background;
+        border-color: @button-danger-disabled-border-color;
+        color: @button-danger-disabled-color;
+    }
+}
+.hook-button-danger-hover() {
+    border-color: @button-danger-hover-border-color;
+}
+.hook-button-danger-active() {
+     border-color: @button-danger-active-border-color;
+}
+.hook-button-disable() {
+    border-color: @button-disabled-border-color;
+}
+.hook-button-link() {
+    border-color: @button-link-border-color;
+}
+.hook-button-large() {}
+.hook-button-misc() {
+    .uk-button-mini {
+        font-weight: normal;
+    }
+
+    // Fix border radius on button groups, and buttons with dropdowns
+    .uk-button-group:not(.uk-button-group-switch) {
+        > .uk-button {
+            &:first-child {
+                border-right: 0;
+                border-radius: @button-border-radius 0 0 @button-border-radius;
+            }
+            + .uk-button:not(:last-child) {
+                border-left: 0;
+                border-right: 0;
+                border-radius: 0;
+            }
+            &:last-child {
+                border-left: 0;
+                border-radius: 0 @button-border-radius @button-border-radius 0;
+            }
+        }
+        .uk-button + [data-uk-dropdown] {
+            .uk-button {
+                border-radius: 0 @button-border-radius @button-border-radius 0;
+            }
+        }
+    }
+}
+
+
+// Custom Hooks
+// ========================================================================
+.hook-button-callout() {}
+.hook-button-callout-hover() {}
+.hook-button-callout-active() {}

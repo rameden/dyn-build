@@ -1,0 +1,147 @@
+// ========================================================================
+//  ___              _   _ ___   _  ___ _
+// |   \ _  _ _ _   | | | |_ _| | |/ (_) |_
+// | |) | || | ' \  | |_| || |  | ' <| |  _|
+// |___/ \_, |_||_|  \___/|___| |_|\_\_|\__|
+//       |__/
+// Dyn UI Kit Core Files, Do NOT modify directly, all changes will be lost
+// This file is imported via Chef and compiled via GruntJS within Portal
+//
+// Usage docs: https://github.corp.dyndns.com/pages/uiux/dyn_uikit/
+// ========================================================================
+
+
+// Variables
+// ========================================================================
+
+@badge-background:                              @secondary-color-blue-grey-50;
+@badge-padding-horizontal:                      11px;
+@badge-font-size:                               12px;
+@badge-font-weight:                             bold;
+@badge-line-height:                             20px;
+@badge-color:                                   @secondary-color-blue-grey-600;
+@badge-text-transform:                          uppercase;
+
+@badge-notification-line-height:                16px;
+
+@badge-success-background:                      @utility-color-success;
+@badge-warning-background:                      @utility-color-warning;
+@badge-danger-background:                       @utility-color-danger;
+
+// Custom Variables
+// ========================================================================
+
+@badge-state-color:                             #fff;
+
+@badge-callout-background:                      @utility-color-callout;
+@badge-callout-color:                           #000;
+
+@badge-outline-background:                      #fff;
+@badge-outline-border:                          @secondary-color-grey-420;
+@badge-outline-color:                           @badge-color;
+
+@badge-small-padding-horizontal:                5px;
+@badge-small-font-size:                         10px;
+@badge-small-font-weight:                       600;
+@badge-small-line-height:                       15px;
+
+@badge-large-padding-horizontal:                15px;
+@badge-large-font-size:                         14px;
+@badge-large-font-weight:                       bold;
+@badge-large-line-height:                       25px;
+
+@badge-notification-padding-horizontal:         7px;
+
+
+/* ========================================================================
+   Component: Badge
+ ========================================================================== */
+
+/* Color modifier
+ ========================================================================== */
+
+/*
+ * Modifier: `uk-badge-callout`
+ */
+
+.uk-badge-callout {
+    background-color: @badge-callout-background;
+    .hook-badge-callout;
+}
+
+/*
+ * Modifier: `uk-badge-outline`
+ */
+
+.uk-badge-outline {
+    background-color: @badge-outline-background;
+    box-shadow: inset 0 0 0 1px @badge-outline-border;
+    .hook-badge-outline;
+}
+
+/* Size Modifier
+ ========================================================================== */
+
+/*
+ * Modifier: `uk-badge-small`
+ */
+
+.uk-badge-small {
+    padding: 0 @badge-small-padding-horizontal;
+    font-size: @badge-small-font-size;
+    font-weight: @badge-small-font-weight;
+    line-height: @badge-small-line-height;
+
+    &.uk-badge-notification {
+        min-width: @badge-small-line-height;
+    }
+    .hook-badge-small;
+}
+
+/*
+ * Modifier: `uk-badge-large`
+ */
+
+.uk-badge-large {
+    padding: 0 @badge-large-padding-horizontal;
+    font-size: @badge-large-font-size;
+    font-weight: @badge-large-font-weight;
+    line-height: @badge-large-line-height;
+
+    &.uk-badge-notification {
+        min-width: @badge-large-line-height;
+    }
+    .hook-badge-large;
+}
+
+// Hooks
+// ========================================================================
+
+.hook-badge() {
+    font-family: @base-body-font-family;
+    -moz-osx-font-smoothing: auto;
+    -webkit-font-smoothing: subpixel-antialiased;
+}
+.hook-badge-success() {
+    color: @badge-state-color;
+}
+.hook-badge-warning() {
+    color: @badge-state-color;
+}
+.hook-badge-danger() {
+    color: @badge-state-color;
+}
+.hook-badge-misc() {
+    .uk-badge-notification {
+        padding: 0 @badge-notification-padding-horizontal;
+    }
+}
+
+// Custom Hooks
+// ========================================================================
+.hook-badge-callout() {
+    color: @button-callout-color;
+}
+.hook-badge-outline() {}
+.hook-badge-small() {}
+.hook-badge-large() {}

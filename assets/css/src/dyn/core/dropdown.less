@@ -1,0 +1,45 @@
+// ========================================================================
+//  ___              _   _ ___   _  ___ _
+// |   \ _  _ _ _   | | | |_ _| | |/ (_) |_
+// | |) | || | ' \  | |_| || |  | ' <| |  _|
+// |___/ \_, |_||_|  \___/|___| |_|\_\_|\__|
+//       |__/
+// Dyn UI Kit Core Files, Do NOT modify directly, all changes will be lost
+// This file is imported via Chef and compiled via GruntJS within Portal
+//
+// Usage docs: https://github.corp.dyndns.com/pages/uiux/dyn_uikit/
+// ========================================================================
+
+
+// Variables
+// ========================================================================
+
+@dropdown-background:                           #fff;
+
+// Custom Variables
+// ========================================================================
+
+@dropdown-border-radius:                        2px;
+@dropdown-box-shadow:                           0 1px 3px 0 rgba(0, 0, 0, 0.5);
+
+
+/* ========================================================================
+   Component: Dropdown
+ ========================================================================== */
+
+// Hooks
+// ========================================================================
+
+.hook-dropdown-misc;
+
+.hook-dropdown() {
+    border-radius: @dropdown-border-radius;
+    box-shadow: @dropdown-box-shadow;
+
+    &:-moz-focusring { // Shame on UIkit devs for not testing cross browser...
+        color: transparent;
+    }
+}
+.hook-dropdown-navbar() {}
+.hook-dropdown-overlay() {}
+.hook-dropdown-misc() {}

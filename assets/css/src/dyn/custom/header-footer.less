@@ -1,0 +1,712 @@
+// ========================================================================
+//  ___              _   _ ___   _  ___ _
+// |   \ _  _ _ _   | | | |_ _| | |/ (_) |_
+// | |) | || | ' \  | |_| || |  | ' <| |  _|
+// |___/ \_, |_||_|  \___/|___| |_|\_\_|\__|
+//       |__/
+// Dyn UI Kit Core Files, Do NOT modify directly, all changes will be lost
+// This file is imported via Chef and compiled via GruntJS within Portal
+//
+// Usage docs: https://github.corp.dyndns.com/pages/uiux/dyn_uikit/
+// ========================================================================
+
+// Variables
+// ========================================================================
+
+// Header banner variables
+@header-banner-height:                              50px;
+@header-banner-background:                          @secondary-color-grey-200;
+@header-banner-z-index:                             105;
+
+// Header variables
+@header-height:                                     50px;
+@header-background:                                 #333;
+@header-color:                                      @secondary-color-blue-grey-100;
+@header-font-family:                                @base-heading-font-family;
+@header-font-size:                                  14px;
+@header-font-weight:                                500;
+@header-active-font-weight:                         800;
+@header-letter-spacing:                             0.025em;
+@header-z-index:                                    100;
+
+// Header logo variables
+@header-logo-height:                                32px;
+@header-logo-width:                                 100px; // Make sure to update JS if you change this
+@header-logo-small-width:                           34px;
+
+// Header title variables
+@header-title-color:                                #fff;
+@header-title-font-size:                            16px;
+@header-title-font-weight:                          @header-active-font-weight;
+
+// Header nub variables
+@header-nub-width:                                  @header-height;
+@header-nub-font-size:                              21px;
+@header-nub-background:                             #000;
+@header-nub-color:                                  #fff;
+@header-nub-hover-color:                            @brand-color-yellow;
+@header-nub-transform-time:                         0.25s;
+
+// Header navigation variables
+@header-nav-color:                                  @secondary-color-grey-240;
+@header-nav-active-color:                           #fff;
+@header-nav-padding:                                15px;
+@header-nav-stripe-height:                          4px;
+@header-nav-stripe-color:                           @brand-color-yellow;
+@header-nav-stripe-extra-width:                     10px;// Additional "width" added to stripe, on top of width defined by the item text
+
+@header-nav-icon-color:                             #fff;
+@header-nav-icon-hover-active-color:                @brand-color-yellow;
+@header-nav-icon-font-size:                         18px;
+@header-nav-icon-width:                             16px;
+
+// Header subnavigation variables
+@header-subnav-position-top:                        44px;
+@header-subnav-min-width:                           200px;
+@header-subnav-max-width:                           320px;
+@header-subnav-notch-size:                          9px;
+@header-subnav-background:                          #fff;
+@header-subnav-color:                               @base-body-color;
+@header-subnav-padding-horizontal:                  20px;
+@header-subnav-font-size:                           14px;
+@header-subnav-font-family:                         @base-heading-font-family;
+
+@header-subnav-item-height:                         50px;
+@header-subnav-item-hover-background:               @secondary-color-grey-160;
+@header-subnav-item-border-width:                   1px;
+@header-subnav-item-border-color:                   @secondary-color-grey-180;
+
+@header-subnav-title-height:                        32px;
+@header-subnav-title-color:                         @secondary-color-grey-700;
+@header-subnav-title-font-size:                     11px;
+@header-subnav-letter-spacing:                      0.05em;
+
+@header-account-menu-item-margin-right:             @da-wrapper-padding - ((@header-height - @header-nav-icon-width) / 2);
+@header-account-subnav-menu-position-right:         10px;
+@header-account-subnav-menu-title-item-height:      20px;
+
+// Hamburger navigation variables
+@hamburger-nav-background:                          #fff;
+@hamburger-nav-font-size:                           18px;
+@hamburger-nav-font-weight:                         500;
+@hamburger-nav-max-width:                           320px;
+@hamburger-nav-subnav-icon-font-size:               20px;
+
+@hamburger-account-nav-item-height:                 20px;
+@hamburger-username-nav-item-font-size:             12px;
+
+@hamburger-subnav-background:                       @secondary-color-grey-180;
+@hamburger-subnav-title-color:                      @secondary-color-grey-1000;
+@hamburger-subnav-font-family:                      @base-body-font-family;
+@hamburger-subnav-font-size:                        16px;
+@hamburger-subnav-font-weight:                      300;
+
+@hamburger-subnav-item-hover-background:            @secondary-color-grey-260;
+@hamburger-subnav-item-border-width:                1px;
+@hamburger-subnav-item-border-color:                @secondary-color-grey-260;
+
+// Taskbar variables
+@taskbar-height:                                    54px;
+@taskbar-border-width:                              1px;
+@taskbar-background:                                @secondary-color-grey-140;
+@taskbar-border-color:                              @secondary-color-blue-grey-100;
+@taskbar-z-index:                                   95;
+
+// Main content variables
+@da-wrapper-padding:                                20px;
+
+// Footer variables
+@footer-height:                                     40px;
+@footer-border-width:                               1px;
+@footer-margin:                                     @da-wrapper-padding;
+@footer-font-size:                                  14px;
+@footer-border-color:                               @secondary-color-grey-400;
+@footer-color:                                      @secondary-color-grey-740;
+
+@footer-links-margin:                               20px;
+@footer-links-border-width:                         1px;
+@footer-links-border-height:                        16px;
+
+// Utility variables for apps
+@viewport-height:                                   calc(~"100vh - "@header-height + @footer-height + @footer-border-width);
+@viewport-with-header-banner-height:                calc(~"100vh - "@header-banner-height + @header-height + @footer-height + @footer-border-width);
+@viewport-with-taskbar-height:                      calc(~"100vh - "@header-height + @taskbar-height + @taskbar-border-width + @footer-height + @footer-border-width);
+@viewport-with-header-banner-taskbar-height:        calc(~"100vh - "@header-banner-height + @header-height + @taskbar-height + @taskbar-border-width + @footer-height + @footer-border-width);
+
+
+/* ========================================================================
+   Header, Footer, Misc. app styling
+   ======================================================================== */
+
+
+// Header "Banner" (pre-header)
+// ========================================================================
+#dh-banner {
+    background: @header-banner-background;
+    height: @header-banner-height;
+    left: 0;
+    margin-left: inherit;
+    padding: 0 @da-wrapper-padding;
+    position: fixed;
+    top: 0;
+    z-index: @header-banner-z-index;
+
+    @media (max-width: @breakpoint-medium-max) {
+        padding: 0 (@da-wrapper-padding / 2);
+    }
+}
+
+
+// Header
+// ========================================================================
+#dh-wrapper {
+    background: @header-background;
+    color: @header-color;
+    height: @header-height;
+    left: 0;
+    margin-left: inherit;
+    position: fixed;
+    top: 0;
+    z-index: @header-z-index;
+
+    &:not(.dh-has-taskbar) {
+        box-shadow: 0 0 5px 0 rgba(0, 0, 0, 0.5);
+    }
+}
+#dh-banner ~ #dh-wrapper {
+    top: @header-banner-height;
+}
+
+#dh-title {
+    color: @header-title-color;
+    font-size: @header-title-font-size;
+    font-weight: @header-title-font-weight;
+    letter-spacing: @header-letter-spacing;
+    line-height: @header-height;
+    z-index: 1;
+
+    @media (min-width: @breakpoint-small) {
+        .uk-text-hidden;
+    }
+}
+
+// The <a> containing the header logo
+#dh-logo {
+    background: url("../img/dyn_header_logo.svg") no-repeat;
+    background-clip: content-box;
+    background-origin: content-box;
+    // This 1px not variablized because this isn't something that should be "adjusted"
+    // It's just to visually bump the background image over to "line it up"
+    background-position: 1px ((@header-height - @header-logo-height) / 2);
+    background-size: auto @header-logo-height;
+    height: @header-height;
+    padding-left: @da-wrapper-padding;
+    width: @header-logo-width;
+    z-index: @header-z-index;
+
+    @media (max-width: @breakpoint-medium-max) {
+        padding: 0 (@da-wrapper-padding / 2);
+    }
+    @media (max-width: @breakpoint-small-max) {
+        width: @header-logo-small-width;
+    }
+}
+
+// The <aside> wrapping all the nub stuff
+#dh-nub {
+    background: @header-nub-background;
+    line-height: @header-nub-width;
+    height: @header-nub-width;
+    width: @header-nub-width;
+    z-index: @header-z-index;
+
+    @media (min-width: @breakpoint-small) {
+        display: none;
+    }
+}
+
+#dh-nub-link {
+    color: @header-nub-color;
+    font-size: @header-nub-font-size;
+    outline: 0;
+    text-decoration: none;
+
+    [class*="uk-icon-"] {
+        line-height: @header-nub-width;
+        transition:
+            transform @header-nub-transform-time ease-in-out,
+            opacity @header-nub-transform-time ease-in-out;
+    }
+
+    .uk-icon-times {
+        opacity: 0;
+        transform: rotate(-0.5turn);
+    }
+
+    &.dh-nub-link-open {
+        [class*="uk-icon-"] {
+            line-height: @header-nub-width;
+        }
+        .uk-icon-bars {
+            opacity: 0;
+            transform: rotate(0.5turn);
+        }
+        .uk-icon-times {
+            opacity: 1;
+            transform: rotate(0turn);
+        }
+    }
+
+    &:hover, &:focus, &.uk-active {
+        color: @header-nub-hover-color;
+    }
+}
+
+// The header <nav>
+#dh-nav {
+    z-index: @header-z-index;
+
+    @media (max-width: @breakpoint-mini-max) {
+        display: none;
+    }
+}
+
+// The header nav <ul>
+#dh-nav-list {
+    line-height: @header-height;
+}
+
+// The <a>'s in each <li> of the nav <ul>
+.dh-nav-item-text {
+    color: @header-nav-color;
+    font-family: @header-font-family;
+    font-size: @header-font-size;
+    .font-smooth();
+    font-weight: @header-font-weight;
+    // max-width: @sidebar-width;
+    letter-spacing: @header-letter-spacing;
+    outline: 0;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+
+    &:hover, &:focus {
+        color: @header-nav-active-color;
+        outline: 0;
+        text-decoration: none;
+    }
+
+    &:focus {
+        text-decoration: underline;
+    }
+    &:active {
+        text-decoration: none;
+    }
+}
+
+// The <li>' of the nav
+.dh-nav-item {
+    min-width: @header-height;
+
+    [class*=uk-icon-] {
+        color: @header-nav-icon-color;
+        font-size: @header-nav-icon-font-size;
+        line-height: @header-height;
+    }
+
+    .dh-nav-item-text {
+         &:hover, &:focus {
+            [class*=uk-icon-] {
+                color: @header-nav-icon-hover-active-color;
+            }
+        }
+    }
+
+    &.uk-active .dh-nav-item-text {
+        color: @header-nav-active-color;
+
+        [class*=uk-icon-] {
+            color: @header-nav-icon-hover-active-color;
+        }
+    }
+}
+
+// Top level navs that don't have an associated menu
+.dh-nav-item:not(.dh-nav-menu) {
+    .dh-nav-item-text {
+        padding: 0 @header-nav-padding;
+    }
+
+    &.uk-active .dh-nav-item-text {
+        color: @header-nav-active-color;
+        font-weight: @header-active-font-weight;
+
+        // Active nav stripe
+        &:before {
+            background: @header-nav-stripe-color;
+            content: '';
+            display: block;
+            height: @header-nav-stripe-height;
+            left: (((@header-nav-padding * 2) - @header-nav-stripe-extra-width) / 2);
+            position: absolute;
+            top: 0;
+            width: calc(~"100% - "((@header-nav-padding * 2) - @header-nav-stripe-extra-width));
+        }
+    }
+}
+
+// The wrapping container for subnavs (includes "notch" and list)
+.dh-subnav-menu {
+    background: @header-subnav-background;
+    box-shadow: 0 0 6px 3px rgba(0, 0, 0, 0.15);
+    letter-spacing: @header-subnav-letter-spacing;
+    min-width: @header-subnav-min-width;
+    max-width: @header-subnav-max-width;
+    position: absolute;
+    right: 0;
+
+    // This is the "notch up"
+    &:before {
+        border: @header-subnav-notch-size solid #fff;
+        border-left-color: transparent;
+        border-right-color: transparent;
+        border-top: none;
+        box-sizing: border-box;
+        content: '';
+        display: block;
+        position: absolute;
+        right: (@header-height - (@header-subnav-notch-size * 2)) / 2;
+        top: -@header-subnav-notch-size;
+        transform: scale3d(.99, 1, 1); // Hack to get the browser to draw smoother
+    }
+}
+
+.dh-subnav-menu-title {
+    color: @header-subnav-title-color;
+    font-size: @header-subnav-title-font-size;
+    height: @header-subnav-title-height;
+    line-height: @header-subnav-title-height;
+    padding: 0 @header-subnav-padding-horizontal;
+}
+
+// The header subnav <ul>s within the menu
+.dh-subnav-list {
+    li {
+        box-shadow: inset 0 @header-subnav-item-border-width 0 0 @header-subnav-item-border-color;
+    }
+
+    // Subnav links within the list <li>s
+    a {
+        color: @header-subnav-color;
+        display: block;
+        font-family: @header-subnav-font-family;
+        font-size: @header-subnav-font-size;
+        height: @header-subnav-item-height;
+        line-height: @header-subnav-item-height;
+        padding: 0 @header-subnav-padding-horizontal;
+        position: relative;
+        z-index: 10;
+
+        &:hover, &:focus {
+            background: @header-subnav-item-hover-background;
+            text-decoration: none;
+            outline: none;
+        }
+    }
+}
+
+// Account menu specific
+#dh-nav-account-menu-item {
+    margin-right: @header-account-menu-item-margin-right;
+
+    .dh-subnav-menu {
+        right: @header-account-subnav-menu-position-right - @header-account-menu-item-margin-right;
+
+        &:before {
+            right: ((@header-height - (@header-subnav-notch-size * 2)) / 2) - (@header-account-subnav-menu-position-right - @header-account-menu-item-margin-right);
+        }
+    }
+}
+#dh-nav-account-menu-link {
+    [class*=uk-icon-] {
+        width: @header-nav-icon-width;
+    }
+}
+#dh-account-subnav-menu-title-account,
+#dh-account-subnav-menu-title-username {
+    height: @header-account-subnav-menu-title-item-height;
+    line-height: @header-account-subnav-menu-title-item-height;
+}
+#dh-account-subnav-menu-title-username {
+    letter-spacing: 0;
+    text-overflow: ellipsis;
+}
+
+// Unauthorized logout
+#dh-logout {
+    color: @header-nav-color;
+    line-height: @header-height;
+
+    &:hover, &:focus {
+        color: @header-nav-active-color;
+        outline: 0;
+        text-decoration: none;
+    }
+
+    [class*=uk-icon-] {
+        color: @header-nav-icon-color;
+    }
+}
+
+
+// Hamburger Nav
+// ========================================================================
+#dh-hamburger-nav-wrapper {
+    overflow: auto;
+    -webkit-tap-highlight-color: rgba(0,0,0,0);
+}
+
+// The offcanvas-bar which is the mobile <nav>
+#dh-hamburger-nav {
+    background: @hamburger-nav-background;
+    box-shadow: -3px 0 6px 4px rgba(0, 0, 0, 0.1);
+    font-size: @hamburger-nav-font-size;
+    width: 100vw;
+
+    @media (min-width: @breakpoint-small) {
+        max-width: @hamburger-nav-max-width;
+    }
+}
+
+#dh-hamburger-nav-list-wrapper {
+    height: 100%;
+    overflow: auto;
+    overflow-x: hidden;
+    position: relative;
+    -webkit-overflow-scrolling: touch;
+}
+
+#dh-hamburger-nav-list {
+    letter-spacing: @header-subnav-letter-spacing;
+
+    &.uk-nav-parent-icon > .uk-parent > a {
+
+        &:after {
+            content: '\f107';
+            font-family: FontAwesome;
+            font-size: @hamburger-nav-subnav-icon-font-size;
+            height: @header-subnav-item-height;
+            margin-right: 0;
+            position: absolute;
+            right: 0;
+            text-align: center;
+            top: 0;
+            transform: rotateX(0deg);
+            transition: transform 0.4s ease-in-out; // 0.4s is based on UIkit subnav animation time (hardcoded)
+            width: @header-subnav-item-height;
+        }
+    }
+    &.uk-nav-parent-icon > .uk-parent.uk-open > a {
+
+        &:after {
+            content: '\f107';
+            transform: rotateX(180deg);
+        }
+    }
+
+    li {
+        box-shadow: inset 0 -@header-subnav-item-border-width 0 0 @header-subnav-item-border-color;
+    }
+
+    .uk-parent.uk-open > a {
+        background: @header-subnav-item-hover-background;
+    }
+
+    a {
+        color: @header-subnav-color;
+        font-family: @header-subnav-font-family;
+        font-size: @header-subnav-font-size;
+        font-weight: @hamburger-nav-font-weight;
+        height: @header-subnav-item-height;
+        line-height: @header-subnav-item-height;
+        padding: 0 @header-subnav-padding-horizontal;
+
+        &:hover, &:focus {
+            background: @header-subnav-item-hover-background;
+            text-decoration: none;
+            outline: none;
+        }
+    }
+
+    .uk-nav-sub {
+        background: @hamburger-subnav-background;
+        padding: 0;
+        position: relative;
+
+        &:before, &:after {
+            content: '';
+            display: block;
+            height: @header-subnav-item-height;
+            position: absolute;
+            width: 100%;
+        }
+
+        &:before {
+            box-shadow: 0 6px 4px -2px rgba(0, 0, 0, 0.1);
+            top: -@header-subnav-item-height;
+        }
+
+        &:after {
+            bottom: -@header-subnav-item-height;
+            box-shadow: 0 -6px 4px -2px rgba(0, 0, 0, 0.1);
+        }
+
+        li {
+            box-shadow: inset 0 @hamburger-subnav-item-border-width 0 0 @hamburger-subnav-item-border-color;
+        }
+
+        a {
+            font-family: @hamburger-subnav-font-family;
+            font-size: @hamburger-subnav-font-size;
+            font-weight: @hamburger-subnav-font-weight;
+
+            &:hover, &:focus {
+                background: @hamburger-subnav-item-hover-background;
+            }
+        }
+    }
+
+    #dh-account-hamburger-nav-title-account,
+    #dh-account-hamburger-nav-title-username {
+        height: @hamburger-account-nav-item-height;
+        line-height: @hamburger-account-nav-item-height;
+    }
+
+    #dh-account-hamburger-nav-title-username {
+        font-size: @hamburger-username-nav-item-font-size;
+        letter-spacing: 0;
+        margin-right: @header-subnav-item-height - @header-subnav-padding-horizontal;
+        text-overflow: ellipsis;
+    }
+}
+
+
+// Taskbar
+// ========================================================================
+#dt-wrapper {
+    background: @taskbar-background;
+    border-bottom: @taskbar-border-width solid @taskbar-border-color;
+    box-shadow: 0 0 5px 0 rgba(0, 0, 0, 0.2), inset 0 1px 0 0 #fff;
+    box-sizing: content-box;
+    height: @taskbar-height;
+    left: 0;
+    margin-left: inherit;
+    position: fixed;
+    top: @header-height;
+    z-index: @taskbar-z-index;
+}
+#dh-banner ~ #dt-wrapper {
+    top: @header-banner-height + @header-height;
+}
+
+#dt-menu {
+    padding: ((@taskbar-height - @button-small-height) / 2) @da-wrapper-padding;
+
+    @media (max-width: @breakpoint-medium-max) {
+        padding: ((@taskbar-height - @button-small-height) / 2) (@da-wrapper-padding / 2);
+    }
+}
+
+
+// Main content wrapper, da == "dyn app"
+// ========================================================================
+#da-wrapper {
+    box-sizing: border-box;
+    margin: @header-height 0 0;
+    min-height: @viewport-height;
+    padding: 0 @da-wrapper-padding;
+    width: 100%;
+
+    @media (max-width: @breakpoint-medium-max) {
+        margin-left: 0;
+        padding: 0 (@da-wrapper-padding / 2);
+        width: 100%;
+    }
+}
+#dh-banner ~ #da-wrapper {
+    margin-top: @header-banner-height + @header-height;
+    min-height: @viewport-with-header-banner-height;
+}
+#dt-wrapper ~ #da-wrapper {
+    margin-top: @header-height + @taskbar-height + @taskbar-border-width;
+    min-height: @viewport-with-taskbar-height;
+}
+#dh-banner ~ #dt-wrapper ~ #da-wrapper {
+    margin-top: @header-banner-height + @header-height + @taskbar-height + @taskbar-border-width;
+    min-height: @viewport-with-header-banner-taskbar-height;
+}
+
+
+// Footer, df == "dyn footer"
+// ========================================================================
+#df-wrapper {
+    border-top: @footer-border-width solid @footer-border-color;
+    box-sizing: border-box;
+    color: @footer-color;
+    font-size: @footer-font-size;
+    line-height: @footer-height;
+    margin: 0 @footer-margin;
+    min-height: @footer-height;
+    width: calc(~"100% - "@footer-margin * 2);
+
+    @media (max-width: @breakpoint-medium-max) {
+        margin: 0 (@footer-margin / 2);
+        width: calc(~"100% - "@footer-margin);
+    }
+
+    @media (max-width: @breakpoint-mini-max) {
+        font-size: @footer-font-size - 2px;
+        font-weight: normal;
+    }
+}
+
+#df-links {
+
+    li + li {
+        margin-left: @footer-links-margin + @footer-links-border-width;
+        position: relative;
+
+        &:before {
+            background: @footer-border-color;
+            content: '';
+            display: block;
+            height: @footer-links-border-height;
+            left: -((@footer-links-margin / 2) + @footer-links-border-width);
+            position: absolute;
+            top: (@footer-height - @footer-links-border-height) / 2;
+            width: @footer-links-border-width;
+        }
+    }
+    a {
+        color: @footer-color;
+    }
+
+    @media (max-width: @breakpoint-medium-max) {
+        li.uk-visible-large + li {
+            margin: 0;
+
+            &:before {
+                display: none;
+            }
+        }
+    }
+    @media (max-width: @breakpoint-small-max) {
+        li.uk-hidden-small + li {
+            margin: 0;
+
+            &:before {
+                display: none;
+            }
+        }
+    }
+}

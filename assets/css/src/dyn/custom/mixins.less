@@ -1,0 +1,53 @@
+// ========================================================================
+//  ___              _   _ ___   _  ___ _
+// |   \ _  _ _ _   | | | |_ _| | |/ (_) |_
+// | |) | || | ' \  | |_| || |  | ' <| |  _|
+// |___/ \_, |_||_|  \___/|___| |_|\_\_|\__|
+//       |__/
+// Dyn UI Kit Core Files, Do NOT modify directly, all changes will be lost
+// This file is imported via Chef and compiled via GruntJS within Portal
+//
+// Usage docs: https://github.corp.dyndns.com/pages/uiux/dyn_uikit/
+// ========================================================================
+
+
+/* ========================================================================
+   Component: Mixins
+   ========================================================================== */
+
+.font-smooth() {
+    -moz-osx-font-smoothing: grayscale !important;
+    -webkit-font-smoothing: antialiased !important;
+}
+
+.font-unsmooth() {
+    -moz-osx-font-smoothing: auto !important;
+    -webkit-font-smoothing: subpixel-antialiased !important;
+}
+
+.perspective(@perspective) {
+    -webkit-perspective: @perspective;
+    -ms-perspective: @perspective;
+    perspective: @perspective;
+}
+.transform(@transform) {
+    -webkit-transform: @transform;
+    -ms-transform: @transform;
+    transform: @transform;
+}
+.transform-origin(@origin) {
+    -webkit-transform-origin: @origin;
+    -ms-transform-origin: @origin;
+    transform-origin: @origin;
+}
+.transform-style(@style) {
+    -webkit-transform-style: @style;
+    -ms-transform-style: @style;
+    transform-style: @style;
+}
+
+.skew(@x, @y) {
+    -webkit-transform: skew(@x, @y);
+    -ms-transform: skew(@x, @y);
+    transform: skew(@x, @y);
+}

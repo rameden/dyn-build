@@ -1,0 +1,153 @@
+// ========================================================================
+//  ___              _   _ ___   _  ___ _
+// |   \ _  _ _ _   | | | |_ _| | |/ (_) |_
+// | |) | || | ' \  | |_| || |  | ' <| |  _|
+// |___/ \_, |_||_|  \___/|___| |_|\_\_|\__|
+//       |__/
+// Dyn UI Kit Core Files, Do NOT modify directly, all changes will be lost
+// This file is imported via Chef and compiled via GruntJS within Portal
+//
+// Usage docs: https://github.corp.dyndns.com/pages/uiux/dyn_uikit/
+// ========================================================================
+
+
+// Variables
+// ========================================================================
+
+@table-padding-vertical:                        5px;
+@table-padding-horizontal:                      14px;
+
+@table-caption-color:                           @secondary-color-blue-grey-500;
+@table-caption-font-size:                       18px;
+
+@table-striped-background:                      lighten(@secondary-color-cyan-50, 5%);
+
+@table-condensed-padding-vertical:              2px;
+@table-condensed-padding-horizontal:            8px;
+
+@table-hover-background:                        lighten(@accent-color-yellow-gold-50, 0.5%);
+
+@table-active-background:                       lighten(@accent-color-yellow-gold-100, 3%);
+
+// Custom Variables
+// ========================================================================
+
+@table-color:                                   @secondary-color-blue-grey-500;
+@table-font-size:                               14px;
+@table-font-weight:                             normal;
+@table-line-height:                             20px;
+
+@table-head-background:                         @secondary-color-blue-grey-50;
+@table-head-font-size:                          12px;
+@table-head-padding-vertical:                   7px;
+@table-head-condensed-padding-vertical:         4px;
+
+@table-caption-line-height:                     28px;
+@table-caption-padding-horizontal:              4px;
+
+@table-sortable-cursor:                         pointer;
+@table-sortable-handle-icon-color:              fade(@table-caption-color, 50%);
+@table-sortable-handle-active-background:       mix(@secondary-color-blue-grey-50, @secondary-color-blue-grey-100, 50%);
+@table-sortable-handle-active-icon-color:       @table-caption-color;
+
+@table-line-border-width:                       1px;
+@table-line-border-color:                       @secondary-color-grey-220;
+
+@table-expanded-line-height:                    38px;
+
+
+/* ========================================================================
+   Component: Table
+ ========================================================================== */
+
+// Hooks
+// ========================================================================
+
+.hook-table() {
+    color: @table-color;
+}
+
+// Reset table striping on ODD rows
+.hook-table-striped() {
+    background: transparent;
+}
+
+.hook-table-misc() {
+
+    .uk-table {
+        font-size: @table-font-size;
+        font-weight: @table-font-weight;
+        line-height: @table-line-height;
+
+        // Override/reset the tfoot font-size because UIkit uses the
+        // caption font-size for the tfoot font-size as well.
+        // Seems like a bug...
+        tfoot {
+            font-size: inherit;
+        }
+
+        // Tastier caption than the UIkit default...
+        caption {
+            font-style: normal;
+            line-height: @table-caption-line-height;
+            padding: 0 @table-caption-padding-horizontal;
+        }
+
+        th {
+            background: @table-head-background;
+            font-size: @table-head-font-size;
+            padding: @table-head-padding-vertical @table-padding-horizontal;
+        }
+    }
+
+    // Add table striping to EVEN rows;
+    // we need to add this because we reset table striping on ODD rows
+    .uk-table-striped tbody tr:nth-of-type(even) {
+        background: @table-striped-background;
+    }
+
+    .uk-table-condensed th {
+        padding: @table-head-condensed-padding-vertical @table-condensed-padding-horizontal;
+    }
+
+    // Need to duplicate hover rule from stock table.less file because this
+    // rule needs to come after to correctly apply the hover bg color.
+    // This is because we changed which rows are zebra striped
+    .uk-table-hover tbody tr:hover {
+        background: @table-hover-background;
+    }
+
+    // Table with more vertical room
+    .uk-table-expanded td {
+        line-height: @table-expanded-line-height;
+    }
+
+    // Table with row line separators
+    .uk-table-line tbody tr {
+        border-bottom: @table-line-border-width solid @table-line-border-color;
+
+        &:last-child {
+            border-bottom: 0;
+        }
+    }
+
+    .uk-table-sortable {
+        // Handle class usually applied to <th>'s
+        .uk-table-sortable-handle {
+            cursor: @table-sortable-cursor;
+
+            [class*='uk-icon-'] {
+                color: @table-sortable-handle-icon-color;
+            }
+
+            &.uk-active {
+                background: @table-sortable-handle-active-background;
+
+                [class*='uk-icon-'] {
+                    color: @table-sortable-handle-active-icon-color;
+                }
+            }
+
+        }
+    }
+}

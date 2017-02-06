@@ -1,0 +1,254 @@
+// ========================================================================
+//  ___              _   _ ___   _  ___ _
+// |   \ _  _ _ _   | | | |_ _| | |/ (_) |_
+// | |) | || | ' \  | |_| || |  | ' <| |  _|
+// |___/ \_, |_||_|  \___/|___| |_|\_\_|\__|
+//       |__/
+// Dyn UI Kit Core Files, Do NOT modify directly, all changes will be lost
+// This file is imported via Chef and compiled via GruntJS within Portal
+//
+// Usage docs: https://github.corp.dyndns.com/pages/uiux/dyn_uikit/
+// ========================================================================
+
+
+// Variables
+// ========================================================================
+
+@form-advanced-size:                          18px;
+@form-advanced-border:                        @form-border;
+@form-advanced-border-width:                  1px;
+@form-advanced-margin-top:                    -3px;
+@form-advanced-color:                         #fff;
+
+@form-advanced-checked-color:                 @secondary-color-blue-grey-500;
+
+@form-advanced-disabled-border:               @secondary-color-grey-320;
+@form-advanced-disabled-color:                @secondary-color-grey-900;
+
+// Custom Variables
+// ========================================================================
+
+@form-advanced-border-radius:                 2px;
+@form-advanced-margin-right:                  5px;
+
+@form-advanced-focus-border:                  @form-focus-border;
+@form-advanced-focus-background:              @form-focus-background;
+@form-advanced-focus-box-shadow-width:        @form-focus-box-shadow-width;
+
+@form-advanced-checked-border:                @form-focus-border;
+@form-advanced-checked-focus-border:          @form-advanced-checked-color;
+@form-advanced-checked-background:            lighten(@secondary-color-cyan-50, 3.5%);
+
+@form-advanced-disabled-background:           @form-disabled-background;
+
+@form-advanced-transition-function:           @form-transition-function;
+@form-advanced-transition-duration:           @form-transition-duration;
+
+@form-advanced-radio-inner-circle-width:      8px;
+
+
+/* ========================================================================
+   Component: Form advanced
+ ========================================================================== */
+
+// Hooks
+// ========================================================================
+
+// Webkit specific only (for now)
+.hook-form-advanced() {
+    border-radius: @form-advanced-border-radius;
+    font-weight: normal;
+    transition:
+        color @form-advanced-transition-function @form-advanced-transition-duration,
+        background @form-advanced-transition-function @form-advanced-transition-duration,
+        border-color @form-advanced-transition-function @form-advanced-transition-duration,
+        box-shadow @form-advanced-transition-function @form-advanced-transition-duration;
+
+    &:focus {
+        border-color: @form-advanced-focus-border;
+        box-shadow: 0 0 @form-advanced-focus-box-shadow-width 0 @form-advanced-focus-border;
+    }
+
+    &:checked {
+        background: @form-advanced-checked-background;
+        border-color: @form-advanced-checked-border;
+
+        &:focus {
+            border-color: @form-advanced-checked-focus-border;
+        }
+    }
+}
+
+// Webkit specific only (for now)
+.hook-form-advanced-radio() {
+    content: none;
+    height: 0;
+    width: 0;
+}
+
+// Webkit specific only (for now)
+.hook-form-advanced-disabled() {
+    background: @form-advanced-disabled-background;
+
+    &:checked, &:indeterminate {
+         background: @form-advanced-disabled-background;
+    }
+}
+
+.hook-form-advanced-misc() {
+    // Webkit specific only (for now)
+    .uk-form input[type="radio"] {
+        &:checked {
+            box-shadow:
+                inset 0 0 0 (((@form-advanced-size - @form-advanced-radio-inner-circle-width) / 2) - @form-advanced-border-width) @form-advanced-checked-background,
+                inset 0 0 0 (@form-advanced-size - (2 * @form-advanced-border-width)) @form-advanced-checked-color;
+
+            &:focus {
+                box-shadow:
+                inset 0 0 0 (((@form-advanced-size - @form-advanced-radio-inner-circle-width) - (2 * @form-advanced-border-width)) / 2) @form-advanced-checked-background,
+                inset 0 0 0 (@form-advanced-size - (2 * @form-advanced-border-width)) @form-advanced-checked-color,
+                0 0 @form-advanced-focus-box-shadow-width 0 @form-advanced-focus-border;
+            }
+            &:disabled {
+                background: @form-advanced-disabled-color;
+                box-shadow:
+                    inset 0 0 0 (((@form-advanced-size - @form-advanced-radio-inner-circle-width) - (2 * @form-advanced-border-width)) / 2) @form-advanced-disabled-background,
+                    inset 0 0 0 (@form-advanced-size - (2 * @form-advanced-border-width)) @form-advanced-disabled-color;
+            }
+        }
+    }
+    // Webkit specific only (for now)
+    .uk-form input[type="checkbox"] {
+        &:indeterminate {
+            background: @form-advanced-checked-background;
+            color: @form-advanced-checked-color;
+            content: @form-advanced-checkbox-indeterminate-icon;
+        }
+    }
+
+
+    // Webkit et al., excludes old IE
+    // Requires class and use of a label directly after the input to work
+    :root .uk-form {
+        input[type="radio"].uk-radio,
+        input[type="checkbox"].uk-checkbox {
+            left: -999em;
+            overflow: hidden;
+            position: absolute;
+            top: auto;
+
+            + label:before {
+                background: @form-advanced-color;
+                border: @form-advanced-border-width solid @form-advanced-border;
+                box-sizing: border-box;
+                color: transparent;
+                content: '';
+                cursor: pointer;
+                display: inline-block;
+                font-family: FontAwesome;
+                font-size: @form-advanced-checkbox-font-size;
+                font-weight: normal;
+                height: @form-advanced-size;
+                line-height: @form-advanced-size - (2 * @form-advanced-border-width);
+                margin-right: @form-advanced-margin-right;
+                position: relative;
+                text-align: center;
+                top: ceil((@base-body-line-height - @form-advanced-size) / 2);
+                transition:
+                    color @form-advanced-transition-function @form-advanced-transition-duration,
+                    background @form-advanced-transition-function @form-advanced-transition-duration,
+                    border-color @form-advanced-transition-function @form-advanced-transition-duration,
+                    box-shadow @form-advanced-transition-function @form-advanced-transition-duration;
+                vertical-align: top;
+                width: @form-advanced-size;
+                .font-smooth();
+            }
+
+            &:focus + label:before {
+                border-color: @form-advanced-focus-border;
+                box-shadow: 0 0 @form-advanced-focus-box-shadow-width 0 @form-advanced-focus-border;
+            }
+
+            &:checked {
+                + label:before {
+                    background: @form-advanced-checked-background;
+                    border-color: @form-advanced-checked-border;
+                    color: @form-advanced-checked-color;
+                }
+                &:focus + label:before {
+                    border-color: @form-advanced-checked-focus-border;
+                }
+            }
+
+            &:disabled {
+                + label:before,
+                &:indeterminate + label:before {
+                    background: @form-advanced-disabled-background;
+                    border-color: @form-advanced-disabled-border;
+                    color: @form-advanced-disabled-color;
+                    cursor: default;
+                }
+            }
+        }
+
+        input[type="radio"].uk-radio {
+            + label:before {
+                border-radius: @form-advanced-size;
+            }
+            &:checked {
+                + label:before {
+                    box-shadow:
+                        inset 0 0 0 (((@form-advanced-size - @form-advanced-radio-inner-circle-width) - (2 * @form-advanced-border-width)) / 2) @form-advanced-checked-background,
+                        inset 0 0 0 (@form-advanced-size - (2 * @form-advanced-border-width)) @form-advanced-checked-color;
+                }
+                &:focus + label:before {
+                    box-shadow: 
+                        inset 0 0 0 (((@form-advanced-size - @form-advanced-radio-inner-circle-width) - (2 * @form-advanced-border-width)) / 2) @form-advanced-checked-background,
+                        inset 0 0 0 (@form-advanced-size - (2 * @form-advanced-border-width)) @form-advanced-checked-color,
+                        0 0 @form-advanced-focus-box-shadow-width 0 @form-advanced-focus-border;
+                }
+                &:disabled + label:before {
+                    box-shadow:
+                        inset 0 0 0 (((@form-advanced-size - @form-advanced-radio-inner-circle-width) - (2 * @form-advanced-border-width)) / 2) @form-advanced-disabled-background,
+                        inset 0 0 0 (@form-advanced-size - (2 * @form-advanced-border-width)) @form-advanced-disabled-color;
+                }
+            }
+        }
+
+        input[type="checkbox"].uk-checkbox {
+            + label:before {
+                border-radius: @form-advanced-border-radius;
+            }
+            &:checked + label:before {
+                content: @form-advanced-checkbox-icon;
+            }
+            &:indeterminate + label:before {
+                background: @form-advanced-checked-background;
+                color: @form-advanced-checked-color;
+                content: @form-advanced-checkbox-indeterminate-icon;
+            }
+        }
+    }
+
+    // Table specific fixes
+    // Fix form elements in tables
+    :root .uk-table .uk-form {
+        input[type="radio"].uk-radio,
+        input[type="checkbox"].uk-checkbox {
+            + label:before {
+                top: ceil((@table-line-height - @form-advanced-size) / 2);
+            }
+        }
+    }
+
+    // Fix form elements in expanded table cells (adjust for line height)
+    :root .uk-table-expanded td .uk-form {
+        input[type="radio"].uk-radio,
+        input[type="checkbox"].uk-checkbox {
+            + label:before {
+                top: ceil((@table-expanded-line-height - @form-advanced-size) / 2);
+            }
+        }
+    }
+
+}

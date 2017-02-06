@@ -1,0 +1,48 @@
+// ========================================================================
+//  ___              _   _ ___   _  ___ _
+// |   \ _  _ _ _   | | | |_ _| | |/ (_) |_
+// | |) | || | ' \  | |_| || |  | ' <| |  _|
+// |___/ \_, |_||_|  \___/|___| |_|\_\_|\__|
+//       |__/
+// Dyn UI Kit Core Files, Do NOT modify directly, all changes will be lost
+// This file is imported via Chef and compiled via GruntJS within Portal
+//
+// Usage docs: https://github.corp.dyndns.com/pages/uiux/dyn_uikit/
+// ========================================================================
+
+
+// Variables
+// ========================================================================
+
+@pagination-background:                         transparent;
+@pagination-hover-background:                   @secondary-color-blue-grey-50;
+@pagination-onclick-background:                 transparent;
+
+@pagination-active-background:                  @secondary-color-blue-grey-500;
+
+@pagination-disabled-background:                transparent;
+
+// Custom Variables
+// ========================================================================
+
+@pagination-border-radius:                      2px;
+
+
+/* ========================================================================
+   Component: Pagination
+ ========================================================================== */
+
+// Hooks
+// ========================================================================
+
+.hook-pagination-misc;
+
+.hook-pagination-item() {
+    border-radius: @pagination-border-radius;
+}
+.hook-pagination-link() {}
+.hook-pagination-link-hover() {}
+.hook-pagination-link-active() {}
+.hook-pagination-active() {}
+.hook-pagination-disabled() {}
+.hook-pagination-misc() {}

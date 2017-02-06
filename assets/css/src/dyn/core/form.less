@@ -1,0 +1,196 @@
+// ========================================================================
+//  ___              _   _ ___   _  ___ _
+// |   \ _  _ _ _   | | | |_ _| | |/ (_) |_
+// | |) | || | ' \  | |_| || |  | ' <| |  _|
+// |___/ \_, |_||_|  \___/|___| |_|\_\_|\__|
+//       |__/
+// Dyn UI Kit Core Files, Do NOT modify directly, all changes will be lost
+// This file is imported via Chef and compiled via GruntJS within Portal
+//
+// Usage docs: https://github.corp.dyndns.com/pages/uiux/dyn_uikit/
+// ========================================================================
+
+
+// Variables
+// ========================================================================
+
+@form-height:                                   36px;
+@form-padding:                                  6px 6px;
+@form-border:                                   @secondary-color-grey-560;
+
+@form-focus-border:                             @secondary-color-cyan-300;
+@form-focus-background:                         #fff;
+
+@form-disabled-border:                          @secondary-color-grey-500;
+@form-disabled-background:                      @secondary-color-grey-160;
+@form-disabled-color:                           @secondary-color-grey-900;
+
+@form-small-height:                             30px;
+@form-large-height:                             44px;
+@form-small-padding:                            3px 5px;
+@form-large-padding:                            8px 8px;
+@form-small-font-size:                          14px;
+@form-large-font-size:                          18px;
+
+@form-stacked-margin-bottom:                    0;
+@form-stacked-font-weight:                      ''; // Explicitly an invalid value to "unset"
+
+// Custom Variables
+// ========================================================================
+
+@form-border-radius:                            2px;
+
+@form-focus-box-shadow-width:                   3px;
+
+@form-focus-danger-border:                      darken(@form-danger-border, 12%);
+@form-focus-danger-background:                  darken(@form-danger-background, 2%);
+@form-focus-danger-color:                       darken(@form-danger-color, 12%);
+
+@form-focus-success-border:                     darken(@form-success-border, 15%);
+@form-focus-success-background:                 darken(@form-success-background, 5%);
+@form-focus-success-color:                      darken(@form-success-color, 15%);
+
+@form-transition-function:                      ease-in-out;
+@form-transition-duration:                      0.1s;
+
+@form-select-background-size:                   12px;
+@form-select-background-position-top:           11px;
+@form-select-background-position-right:         8px;
+@form-select-padding-right:                     (@form-select-background-size + (2 * @form-select-background-position-right));
+
+@form-small-select-background-position-top:     8px;
+@form-large-select-background-position-top:     15px;
+@form-small-select-background-position-right:   7px;
+@form-large-select-background-position-right:   10px;
+@form-small-select-padding-right:               (@form-select-background-size + (2 * @form-small-select-background-position-right));
+@form-large-select-padding-right:               (@form-select-background-size + (2 * @form-large-select-background-position-right));
+
+
+/* ========================================================================
+   Component: Form
+ ========================================================================== */
+
+
+// Hooks
+// ========================================================================
+
+.hook-form() {
+    transition: all @form-transition-function @form-transition-duration;
+}
+.hook-form-focus() {
+    box-shadow: 0 0 @form-focus-box-shadow-width 0 @form-focus-border;
+}
+.hook-form-disabled() {}
+.hook-form-legend() {
+    font-weight: 400;
+}
+.hook-form-danger() {
+    // !important's used here ONLY so we can override UIkit defaults properly (shame on them)
+    &:-moz-focusring {
+        text-shadow: 0 0 0 @form-focus-danger-color !important;
+    }
+    &:focus {
+        background: @form-focus-danger-background !important;
+        border-color: @form-focus-danger-border !important;
+        color: @form-focus-danger-color !important;
+    }
+}
+.hook-form-success() {
+    // !important's used here ONLY so we can override UIkit defaults properly (shame on them)
+    &:-moz-focusring {
+        text-shadow: 0 0 0 @form-focus-success-color !important;
+    }
+    &:focus {
+        background: @form-focus-success-background !important;
+        border-color: @form-focus-success-border !important;
+        color: @form-focus-success-color !important;
+    }
+}
+.hook-form-blank() {}
+.hook-form-blank-focus() {}
+.hook-form-stacked-label() {}
+.hook-form-horizontal-label() {}
+.hook-form-misc() {
+    // Need to put this in misc hook with selectors because there's no other hook exposed
+    .uk-form input,
+    .uk-form select,
+    .uk-form textarea {
+        border-radius: @form-border-radius;
+    }
+
+    .uk-form select {
+        -moz-appearance: none;
+        -webkit-appearance: none;
+        appearance: none;
+        cursor: pointer;
+        padding-right: @form-select-padding-right;
+
+        // "Get rid" of Firefox's nasty persistent focus ring (make it invisible)
+        // Explicitly set desired transitions so it's clean and smooth
+        // !important's used here ONLY so we can override UIkit defaults properly (shame on them)
+        &:-moz-focusring {
+            color: transparent !important;
+            text-shadow: 0 0 0 @form-color;
+            transition:
+                background-color @form-transition-function @form-transition-duration,
+                border-color @form-transition-function @form-transition-duration,
+                box-shadow @form-transition-function @form-transition-duration,
+                color 0s,
+                text-shadow 0s;
+        }
+        &::-ms-expand {
+            display: none;
+        }
+
+        // Custom select list arrow
+        // !important's used here ONLY so we can override UIkit defaults properly (shame on them)
+        &, &:focus {
+            // Use longhand properties here so we don't have to deal with inherited background color
+            background-image: data-uri('image/png;base64', '../img/uk_select_arrow.png') !important;
+            // Should use `right @form-select-background-position-right top @form-select-background-position-top` when more browsers support it
+            background-position: calc(-@form-select-background-position-right~" + 100%") calc(@form-select-background-position-top~" + 0%") !important;
+            background-repeat: no-repeat !important;
+            background-size: @form-select-background-size !important;
+
+            &.uk-form-small {
+                background-position: calc(-@form-small-select-background-position-right~" + 100%") calc(@form-small-select-background-position-top~" + 0%") !important;
+            }
+            &.uk-form-large {
+                background-position: calc(-@form-large-select-background-position-right~" + 100%") calc(@form-large-select-background-position-top~" + 0%") !important;
+            }
+        }
+        // !important's used here ONLY so we can override UIkit defaults properly (shame on them)
+        &:disabled {
+            background-image: data-uri('image/png;base64', '../img/uk_select_arrow_disabled.png') !important;
+            cursor: default;
+        }
+
+        &[multiple] {
+            background-image: none !important;
+        }
+
+        &.uk-form-small {
+            padding-right: @form-small-select-padding-right;
+        }
+        &.uk-form-large {
+            padding-right: @form-large-select-padding-right;
+        }
+
+        @media
+        only screen and (-webkit-min-device-pixel-ratio: 2),
+        only screen and (   min--moz-device-pixel-ratio: 2),
+        only screen and (     -o-min-device-pixel-ratio: 2/1),
+        only screen and (        min-device-pixel-ratio: 2),
+        only screen and (                min-resolution: 192dpi),
+        only screen and (                min-resolution: 2dppx) {
+            // @2x custom select list arrow
+            // !important's used here ONLY so we can override UIkit defaults properly (shame on them)
+            &, &:focus {
+                background-image: data-uri('image/png;base64', '../img/uk_select_arrow@2x.png') !important;
+            }
+            &:disabled {
+                background-image: data-uri('image/png;base64', '../img/uk_select_arrow_disabled@2x.png') !important;
+            }
+        }
+    }
+}

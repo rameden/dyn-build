@@ -1,0 +1,102 @@
+// ========================================================================
+//  ___              _   _ ___   _  ___ _
+// |   \ _  _ _ _   | | | |_ _| | |/ (_) |_
+// | |) | || | ' \  | |_| || |  | ' <| |  _|
+// |___/ \_, |_||_|  \___/|___| |_|\_\_|\__|
+//       |__/
+// Dyn UI Kit Core Files, Do NOT modify directly, all changes will be lost
+// This file is imported via Chef and compiled via GruntJS within Portal
+//
+// Usage docs: https://github.corp.dyndns.com/pages/uiux/dyn_uikit/
+// ========================================================================
+
+
+// Variables
+// ========================================================================
+
+@rating-bar-border-radius:                      2px;
+@rating-bar-height:                             5px;
+@rating-bar-margin:                             1px;
+
+@rating-bar-background:                         @secondary-color-grey-260;
+@rating-bar-active-background:                  @secondary-color-blue-grey-400;
+
+@rating-callout-background:                     @utility-color-callout;
+@rating-success-background:                     @utility-color-success;
+@rating-warning-background:                     @utility-color-warning;
+@rating-danger-background:                      @utility-color-danger;
+
+
+/* ========================================================================
+   Component: Rating
+ ========================================================================== */
+
+.uk-rating {
+    // Clearfix
+    &:before {
+        content: "";
+        display: table-cell;
+    }
+
+    &:after {
+        content: "";
+        display: table;
+        clear: both;
+    }
+}
+
+[class*="uk-rating-bar-"] {
+    > .uk-rating-segment {
+        background: @rating-bar-active-background;
+        border-radius: @rating-bar-border-radius;
+        box-sizing: border-box;
+        float: left;
+        height: @rating-bar-height;
+
+        ~ .uk-rating-segment {
+            margin-left: @rating-bar-margin;
+        }
+
+        &.uk-active ~ .uk-rating-segment {
+            background: @rating-bar-background;
+        }
+    }
+    &.uk-rating-callout > .uk-rating-segment {
+        background: @utility-color-callout;
+    }
+    &.uk-rating-success > .uk-rating-segment {
+        background: @utility-color-success;
+    }
+    &.uk-rating-warning > .uk-rating-segment {
+        background: @utility-color-warning;
+    }
+    &.uk-rating-danger > .uk-rating-segment {
+        background: @utility-color-danger;
+    }
+}
+
+.uk-rating-bar-2 .uk-rating-segment {
+    width: calc(~"(100% / 2) - "(@rating-bar-margin * 1) / 2);
+}
+.uk-rating-bar-3 .uk-rating-segment {
+    width: calc(~"(100% / 3) - "(@rating-bar-margin * 2) / 3);
+}
+.uk-rating-bar-4 .uk-rating-segment {
+    width: calc(~"(100% / 4) - "(@rating-bar-margin * 3) / 4);
+}
+.uk-rating-bar-5 .uk-rating-segment {
+    width: calc(~"(100% / 5) - "(@rating-bar-margin * 4) / 5);
+}
+.uk-rating-bar-6 .uk-rating-segment {
+    width: calc(~"(100% / 6) - "(@rating-bar-margin * 5) / 6);
+}
+.uk-rating-bar-7 .uk-rating-segment {
+    width: calc(~"(100% / 7) - "(@rating-bar-margin * 6) / 7);
+}
+.uk-rating-bar-8 .uk-rating-segment {
+    width: calc(~"(100% / 8) - "(@rating-bar-margin * 7) / 8);
+}
+
+// Hooks
+// ========================================================================
+

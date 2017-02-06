@@ -1,0 +1,160 @@
+// ========================================================================
+//  ___              _   _ ___   _  ___ _
+// |   \ _  _ _ _   | | | |_ _| | |/ (_) |_
+// | |) | || | ' \  | |_| || |  | ' <| |  _|
+// |___/ \_, |_||_|  \___/|___| |_|\_\_|\__|
+//       |__/
+// Dyn UI Kit Core Files, Do NOT modify directly, all changes will be lost
+// This file is imported via Chef and compiled via GruntJS within Portal
+//
+// Usage docs: https://github.corp.dyndns.com/pages/uiux/dyn_uikit/
+// ========================================================================
+
+
+// Variables
+// ========================================================================
+
+@alert-background:                              lighten(@secondary-color-cyan-50, 3.5%);
+@alert-color:                                   @secondary-color-dark-cyan-400;
+
+@alert-success-background:                      lighten(@accent-color-light-green-50, 2%);
+@alert-success-color:                           @utility-color-success;
+
+@alert-warning-background:                      lighten(@accent-color-yellow-gold-50, 2.5%);
+@alert-warning-color:                           @utility-color-warning;
+
+@alert-danger-background:                       lighten(@utility-color-danger, 31.5%);
+@alert-danger-color:                            @utility-color-danger;
+
+// Custom Variables
+// ========================================================================
+
+@alert-border-width:                            1px;
+@alert-border-color:                            lighten(@secondary-color-dark-cyan-200, 2.5%);
+@alert-border-radius:                           3px;
+
+@alert-icon-size:                               24px;
+@alert-header-color:                            @secondary-color-blue-grey-600;
+
+@alert-large-icon-size:                         48px;
+
+@alert-success-border-color:                    lighten(@accent-color-light-green-200, 5%);
+@alert-success-icon:                            "\f058";
+
+@alert-warning-border-color:                    @accent-color-yellow-gold-200;
+@alert-warning-icon:                            "\f06a";
+
+@alert-danger-border-color:                     lighten(@utility-color-danger, 27.5%);
+@alert-danger-icon:                             "\f071";
+
+
+/* ========================================================================
+   Component: Alert
+ ========================================================================== */
+
+// Hooks
+// ========================================================================
+
+.hook-alert() {
+    border: @alert-border-width solid @alert-border-color;
+    border-radius: @alert-border-radius;
+    color: @base-body-color;
+    position: relative;
+
+    &:before {
+        display: none;
+        font-family: FontAwesome;
+        font-size: @alert-icon-size;
+        -moz-osx-font-smoothing: grayscale;
+        -webkit-font-smoothing: antialiased;
+        height: @alert-icon-size;
+        left: @alert-padding;
+        line-height: @alert-icon-size;
+        position: absolute;
+        text-align: center;
+        top: @alert-padding;
+        width: @alert-icon-size;
+    }
+
+    &.uk-alert-large:before {
+        font-size: @alert-large-icon-size;
+        height: @alert-large-icon-size;
+        left: @alert-large-padding;
+        line-height: @alert-large-icon-size;
+        top: @alert-large-padding;
+        width: @alert-large-icon-size;
+    }
+
+    > .uk-close {
+        color: @alert-color;
+    }
+}
+.hook-alert-success() {
+    border-color: @alert-success-border-color;
+    color: @base-body-color;
+    padding-left: (@alert-icon-size + (2 * @alert-padding));
+
+    &:before {
+        color: @alert-success-color;
+        content: @alert-success-icon;
+        display: block;
+    }
+
+    &.uk-alert-large {
+        min-height: @alert-large-icon-size;
+        padding-left: (@alert-large-icon-size + (2 * @alert-large-padding));
+    }
+
+    > .uk-close {
+        color: @alert-success-color;
+    }
+}
+.hook-alert-warning() {
+    border-color: @alert-warning-border-color;
+    color: @base-body-color;
+    padding-left: (@alert-icon-size + (2 * @alert-padding));
+
+    &:before {
+        color: @alert-warning-color;
+        content: @alert-warning-icon;
+        display: block;
+    }
+
+    &.uk-alert-large {
+        min-height: @alert-large-icon-size;
+        padding-left: (@alert-large-icon-size + (2 * @alert-large-padding));
+    }
+
+    > .uk-close {
+        color: @alert-warning-color;
+    }
+}
+.hook-alert-danger() {
+    border-color: @alert-danger-border-color;
+    color: @base-body-color;
+    padding-left: (@alert-icon-size + (2 * @alert-padding));
+
+    &:before {
+        color: @alert-danger-color;
+        content: @alert-danger-icon;
+        display: block;
+    }
+
+    &.uk-alert-large {
+        min-height: @alert-large-icon-size;
+        padding-left: (@alert-large-icon-size + (2 * @alert-large-padding));
+    }
+
+    > .uk-close {
+        color: @alert-danger-color;
+    }
+}
+.hook-alert-misc() {
+    // Re-override heading color
+    .uk-alert {
+        h1, h2, h3, h4, h5, h6 {
+            color: @alert-header-color;
+        }
+    }
+
+}

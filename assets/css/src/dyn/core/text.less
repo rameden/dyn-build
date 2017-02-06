@@ -1,0 +1,160 @@
+// ========================================================================
+//  ___              _   _ ___   _  ___ _
+// |   \ _  _ _ _   | | | |_ _| | |/ (_) |_
+// | |) | || | ' \  | |_| || |  | ' <| |  _|
+// |___/ \_, |_||_|  \___/|___| |_|\_\_|\__|
+//       |__/
+// Dyn UI Kit Core Files, Do NOT modify directly, all changes will be lost
+// This file is imported via Chef and compiled via GruntJS within Portal
+//
+// Usage docs: https://github.corp.dyndns.com/pages/uiux/dyn_uikit/
+// ========================================================================
+
+
+// Variables
+// ========================================================================
+
+// Variables
+// ========================================================================
+
+@text-small-font-size:                          12px;
+@text-small-line-height:                        18px;
+@text-large-font-size:                          20px;
+@text-large-line-height:                        26px;
+@text-large-font-weight:                        @base-body-font-weight;
+
+@text-primary-color:                            @secondary-color-blue-grey-600;
+@text-success-color:                            @utility-color-success;
+@text-warning-color:                            @utility-color-warning;
+@text-danger-color:                             @utility-color-danger;
+
+// Custom Variables
+// ========================================================================
+
+@text-small-font-weight:                        normal;
+@text-semi-small-font-weight:                   normal;
+@text-semi-small-font-size:                     14px;
+@text-semi-small-line-height:                   18px;
+
+@text-secondary-color:                          @accent-color-violet-500;
+
+
+/* ========================================================================
+   Component: Text
+ ========================================================================== */
+
+/* Default modifiers
+ ========================================================================== */
+.uk-text-default-case {
+    text-transform: none !important;
+}
+.uk-text-default-color {
+    color: @base-body-color !important;
+}
+.uk-text-default-family {
+    font-family: @base-body-font-family !important;
+}
+.uk-text-default-line-height {
+    line-height: @base-body-line-height !important;
+}
+.uk-text-default-size {
+    font-size: @base-body-font-size !important;
+}
+.uk-text-default-weight {
+    font-weight: @base-body-font-weight !important;
+}
+
+
+/* Size modifiers
+ ========================================================================== */
+.uk-text-semi-small {
+    font-size: @text-semi-small-font-size;
+    font-weight: @text-semi-small-font-weight;
+    line-height: @text-semi-small-line-height;
+}
+
+/* Wrap modifiers
+ ========================================================================== */
+.uk-text-wrap { white-space: normal; }
+
+
+/* Decoration modifiers
+ ========================================================================== */
+.uk-text-underline {
+    text-decoration: underline !important;
+}
+/*
+ * Dashed underline implemented via border,
+ * since text-decoration-style isn't really supported yet.
+ */
+.uk-text-underline-dashed {
+    border-bottom: 1px dashed currentColor !important;
+}
+
+/* Smoothing modifiers
+ ========================================================================== */
+.uk-text-smooth {
+    .font-smooth();
+}
+
+/* Color modifiers
+ ========================================================================== */
+.uk-text-secondary {
+    color: @text-secondary-color !important;
+}
+
+/* Utility modifiers
+ ========================================================================== */
+.uk-text-reserve:after {
+    content: '\00a0';
+    display: inline;
+}
+/*
+ * Hide only visually, but have it available for screen readers:
+ * http://snook.ca/archives/html_and_css/hiding-content-for-accessibility
+ */
+.uk-text-hidden {
+    border: 0;
+    clip: rect(0 0 0 0);
+    height: 1px;
+    margin: -1px;
+    overflow: hidden;
+    padding: 0;
+    position: absolute;
+    width: 1px;
+
+    /*
+     * Extends the .uk-text-hidden class to allow the element
+     * to be focusable when navigated to via the keyboard:
+     * https://www.drupal.org/node/897638
+     */
+    &.uk-focusable:active,
+    &.uk-focusable:focus {
+        clip: auto;
+        height: auto;
+        margin: 0;
+        overflow: visible;
+        position: static;
+        width: auto;
+    }
+}
+
+// Hooks
+// ========================================================================
+
+.hook-text-misc() {
+    /* Size modifiers
+     ========================================================================== */
+
+    .uk-text-small {
+        font-weight: @text-small-font-weight;
+    }
+
+
+    /* Weight modifiers
+     ========================================================================== */
+
+    .uk-text-bold {
+        font-weight: 600;
+    }
+}

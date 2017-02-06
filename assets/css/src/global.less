@@ -35,21 +35,28 @@ html {
   max-width:900px;
   margin:0 auto;
 }
+.chat-wrap{
+  margin:-1px 0px 0px 0px !important;
+}
+//Navigation styles
+.uk-navbar {
+    background: @global-main-color;
+}
+.uk-navbar .uk-container{
+  max-width:100%;
+}
+.uk-navbar-brand img{
+  height:50px;
+  padding-top:10px;
+}
+
+//Mobile Navigation styles
 #navbar-side{
   padding:10px 0px;
 }
-.uk-navbar-flip .uk-navbar-nav>li>a.uk-temp-button{
-  border: 3px solid #fce300;
-  font-size:14px;
-  color:#fff;
-}
-
 #navbar-side .uk-navbar-nav>li>a{
   height: 40px;
   line-height: 39px;
-}
-.uk-navbar {
-    background: @global-main-color;
 }
 .uk-navbar-nav>li>a {
     font-family: Avenir,"Century Gothic",CenturyGothic,AppleGothic,sans-serif;
@@ -59,6 +66,7 @@ html {
     line-height: 59px;
     font-size:16px;
     padding:0 30px;
+    font-weight: 400;
 }
 #menu-main-menu.uk-navbar-nav>li>a{
   line-height: 56px;
@@ -68,6 +76,40 @@ html {
   margin-top:1px;
   border-radius: 0;
   padding: 0 15px;
+}
+#menu-main-menu.uk-navbar-nav>li.uk-active>a{
+    border-top:3px solid @dyn-yellow;
+    background:transparent;
+    color:@global-text-contrast;
+}
+#menu-main-menu.uk-navbar-nav>li.uk-active.uk-open>a,
+#menu-main-menu.uk-navbar-nav>li.uk-active:hover>a,
+#menu-main-menu.uk-navbar-nav>li>a.uk-active:focus {
+  border-top:3px solid @dyn-yellow;
+  margin-top:-1px;
+}
+#menu-main-menu.uk-navbar-nav>li.uk-open>a,
+#menu-main-menu.uk-navbar-nav>li:hover>a,
+#menu-main-menu.uk-navbar-nav>li>a:focus {
+    background-color: transparent;
+    color: @global-text-contrast;
+    outline: 0;
+    position: relative;
+    z-index: 1;
+    font-weight: 600;
+    border-color:transparent;
+    text-decoration: none;
+    margin-top:-2px;
+}
+#menu-main-menu.uk-navbar-nav>li>a::after {
+    display:block;
+    content:attr(title);
+    font-weight:bold;
+    height:1px;
+    color:transparent;
+    overflow:hidden;
+    visibility:hidden;
+    //margin-bottom:-1px;
 }
 #menu-main-menu .uk-dropdown-navbar:before{
   content: '\25b2';
@@ -81,26 +123,7 @@ html {
 .uk-navbar-flip .uk-navbar-nav>li>a{
   padding:0px 15px;
 }
-.uk-navbar-brand{
-  padding-left:0;
-}
-.uk-navbar-brand img{
-  height:50px;
-  padding-top:10px;
-}
-#menu-main-menu.uk-navbar-nav>li.uk-open>a,
-#menu-main-menu.uk-navbar-nav>li:hover>a,
-#menu-main-menu.uk-navbar-nav>li>a:focus {
-    background-color: transparent;
-    color: @global-text-contrast;
-    outline: 0;
-    position: relative;
-    z-index: 1;
-    border-top-color: @dyn-yellow;
-    border-bottom-color:transparent;
-    border-left-color:transparent;
-    border-right-color:transparent;
-}
+
 #menu-main-menu .uk-dropdown ul>li>a{
   padding: 10px 10px 10px 0;
   font-size: 16px;
@@ -126,12 +149,20 @@ html {
     color: @global-text-contrast;
     border-color:transparent;
 }
-#navbar-side .uk-navbar-nav>li.uk-open>a.uk-temp-button,
-#navbar-side .uk-navbar-nav>li:hover>a.uk-temp-button,
-#navbar-side .uk-navbar-nav>li>a.uk-temp-button:focus{
-  border: 3px solid #fce300;
+#navbar-side .uk-navbar-nav>li>a.uk-button-nav{
+  border: 2px solid @dyn-yellow;
+  padding: 0 25px;
 }
-
+.uk-navbar-toggle {
+    font-size: 22px;
+    color: #444;
+    text-decoration: none;
+    height: 60px;
+}
+.uk-navbar-toggle:after{
+  font-family: Dyn !important;
+  content: "\e979";
+}
 /* ========================================================================
    Dyn Fonts
    ======================================================================== */

@@ -1,0 +1,327 @@
+// ========================================================================
+//  ___              _   _ ___   _  ___ _
+// |   \ _  _ _ _   | | | |_ _| | |/ (_) |_
+// | |) | || | ' \  | |_| || |  | ' <| |  _|
+// |___/ \_, |_||_|  \___/|___| |_|\_\_|\__|
+//       |__/
+// Dyn UI Kit Core Files, Do NOT modify directly, all changes will be lost
+// This file is imported via Chef and compiled via GruntJS within Portal
+//
+// Usage docs: https://github.corp.dyndns.com/pages/uiux/dyn_uikit/
+// ========================================================================
+
+
+// Variables
+// ========================================================================
+
+@form-advanced-radio-toggle-height:                             @button-height;
+@form-advanced-radio-toggle-mini-height:                        @button-mini-height;
+@form-advanced-radio-toggle-small-height:                       @button-small-height;
+@form-advanced-radio-toggle-large-height:                       @button-large-height;
+
+@form-advanced-radio-toggle-line-height:                        @button-line-height;
+@form-advanced-radio-toggle-mini-line-height:                   @button-mini-line-height;
+@form-advanced-radio-toggle-small-line-height:                  @button-small-line-height;
+@form-advanced-radio-toggle-large-line-height:                  @button-large-line-height;
+
+@form-advanced-radio-toggle-font-size:                          14px;
+@form-advanced-radio-toggle-mini-font-size:                     10px;
+@form-advanced-radio-toggle-small-font-size:                    12px;
+@form-advanced-radio-toggle-large-font-size:                    16px;
+
+@form-advanced-radio-toggle-border-width:                       @button-border-width;
+@form-advanced-radio-toggle-border-radius:                      4px;
+@form-advanced-radio-toggle-padding-horizontal:                 @button-padding-horizontal / 2;
+
+@form-advanced-radio-toggle-border-color:                       @secondary-color-grey-300;
+@form-advanced-radio-toggle-background:                         @secondary-color-grey-160;
+@form-advanced-radio-toggle-inactive-color:                     @secondary-color-grey-780;
+@form-advanced-radio-toggle-inactive-hover-color:               @secondary-color-grey-1200;
+@form-advanced-radio-toggle-inactive-active-color:              @secondary-color-grey-1200;
+
+@form-advanced-radio-toggle-option-width:                       (@form-advanced-radio-toggle-height * 2) + 4px;
+@form-advanced-radio-toggle-option-mini-width:                  (@form-advanced-radio-toggle-mini-height * 2) + 4px;
+@form-advanced-radio-toggle-option-small-width:                 (@form-advanced-radio-toggle-small-height * 2) + 4px;
+@form-advanced-radio-toggle-option-large-width:                 (@form-advanced-radio-toggle-large-height * 2) + 4px;
+
+@form-advanced-radio-toggle-option-narrow-width:                @form-advanced-radio-toggle-height + 6px;
+@form-advanced-radio-toggle-option-narrow-mini-width:           @form-advanced-radio-toggle-mini-height + 6px;
+@form-advanced-radio-toggle-option-narrow-small-width:          @form-advanced-radio-toggle-small-height + 6px;
+@form-advanced-radio-toggle-option-narrow-large-width:          @form-advanced-radio-toggle-large-height + 6px;
+
+@form-advanced-radio-toggle-option-wide-width:                  (@form-advanced-radio-toggle-height * 3) + 2px;
+@form-advanced-radio-toggle-option-wide-mini-width:             (@form-advanced-radio-toggle-mini-height * 3) + 2px;
+@form-advanced-radio-toggle-option-wide-small-width:            (@form-advanced-radio-toggle-small-height * 3) + 2px;
+@form-advanced-radio-toggle-option-wide-large-width:            (@form-advanced-radio-toggle-large-height * 3) + 2px;
+
+@form-advanced-radio-toggle-option-background:                  @button-background;
+@form-advanced-radio-toggle-option-border-color:                @button-border-color;
+@form-advanced-radio-toggle-option-color:                       @button-color;
+@form-advanced-radio-toggle-option-hover-background:            @button-hover-background;
+@form-advanced-radio-toggle-option-hover-border-color:          @button-hover-border-color;
+@form-advanced-radio-toggle-option-hover-color:                 @button-hover-color;
+@form-advanced-radio-toggle-option-active-background:           @button-active-background;
+@form-advanced-radio-toggle-option-active-border-color:         @button-active-border-color;
+@form-advanced-radio-toggle-option-active-color:                @button-active-color;
+
+@form-advanced-radio-toggle-option-primary-background:          @button-primary-background;
+@form-advanced-radio-toggle-option-primary-border-color:        @button-primary-border-color;
+@form-advanced-radio-toggle-option-primary-color:               @button-primary-color;
+@form-advanced-radio-toggle-option-primary-hover-background:    @button-primary-hover-background;
+@form-advanced-radio-toggle-option-primary-hover-border-color:  @button-primary-hover-border-color;
+@form-advanced-radio-toggle-option-primary-hover-color:         @button-primary-hover-color;
+@form-advanced-radio-toggle-option-primary-active-background:   @button-primary-active-background;
+@form-advanced-radio-toggle-option-primary-active-border-color: @button-primary-active-border-color;
+@form-advanced-radio-toggle-option-primary-active-color:        @button-primary-active-color;
+
+@form-advanced-radio-toggle-option-callout-background:          @button-callout-background;
+@form-advanced-radio-toggle-option-callout-border-color:        @button-callout-border-color;
+@form-advanced-radio-toggle-option-callout-color:               @button-callout-color;
+@form-advanced-radio-toggle-option-callout-hover-background:    @button-callout-hover-background;
+@form-advanced-radio-toggle-option-callout-hover-border-color:  @button-callout-hover-border-color;
+@form-advanced-radio-toggle-option-callout-hover-color:         @button-callout-hover-color;
+@form-advanced-radio-toggle-option-callout-active-background:   @button-callout-active-background;
+@form-advanced-radio-toggle-option-callout-active-border-color: @button-callout-active-border-color;
+@form-advanced-radio-toggle-option-callout-active-color:        @button-callout-active-color;
+
+@form-advanced-radio-toggle-option-success-background:          @button-success-background;
+@form-advanced-radio-toggle-option-success-border-color:        @button-success-border-color;
+@form-advanced-radio-toggle-option-success-color:               @button-success-color;
+@form-advanced-radio-toggle-option-success-hover-background:    @button-success-hover-background;
+@form-advanced-radio-toggle-option-success-hover-border-color:  @button-success-hover-border-color;
+@form-advanced-radio-toggle-option-success-hover-color:         @button-success-hover-color;
+@form-advanced-radio-toggle-option-success-active-background:   @button-success-active-background;
+@form-advanced-radio-toggle-option-success-active-border-color: @button-success-active-border-color;
+@form-advanced-radio-toggle-option-success-active-color:        @button-success-active-color;
+
+@form-advanced-radio-toggle-option-danger-background:           @button-danger-background;
+@form-advanced-radio-toggle-option-danger-border-color:         @button-danger-border-color;
+@form-advanced-radio-toggle-option-danger-color:                @button-danger-color;
+@form-advanced-radio-toggle-option-danger-hover-background:     @button-danger-hover-background;
+@form-advanced-radio-toggle-option-danger-hover-border-color:   @button-danger-hover-border-color;
+@form-advanced-radio-toggle-option-danger-hover-color:          @button-danger-hover-color;
+@form-advanced-radio-toggle-option-danger-active-background:    @button-danger-active-background;
+@form-advanced-radio-toggle-option-danger-active-border-color:  @button-danger-active-border-color;
+@form-advanced-radio-toggle-option-danger-active-color:         @button-danger-active-color;
+
+
+/* ========================================================================
+     Component: Radio Toggle
+ ========================================================================== */
+
+.uk-radio-toggle {
+    .uk-h6;
+
+    background: @form-advanced-radio-toggle-background;
+    border-radius: @form-advanced-radio-toggle-border-radius;
+    box-shadow:
+        inset 0 0 3px 0 rgba(0, 0, 0, 0.25),
+        inset 0 0 0 @form-advanced-radio-toggle-border-width @form-advanced-radio-toggle-border-color;
+    box-sizing: border-box;
+    display: inline-block;
+    font-size: @form-advanced-radio-toggle-font-size;
+    height: @form-advanced-radio-toggle-height;
+    line-height: @form-advanced-radio-toggle-line-height;
+    overflow: hidden;
+  
+    > input[type=radio] {
+        .uk-text-hidden;
+
+        // Inactive states
+        &:not(:checked) + label {
+            color: @form-advanced-radio-toggle-inactive-color;
+        }
+        &:not(:checked) + label:hover,
+        &:not(:checked):focus + label {
+            color: @form-advanced-radio-toggle-inactive-hover-color;
+        }
+        &:not(:checked):active + label {
+            color: @form-advanced-radio-toggle-inactive-active-color;
+        }
+
+        // Default active states
+        &:checked + label {
+            background-color: @form-advanced-radio-toggle-option-background;
+            border-color: @form-advanced-radio-toggle-option-border-color;
+            box-shadow: 0 0 3px 0 rgba(0, 0, 0, 0.25);
+            color: @form-advanced-radio-toggle-option-color;
+        }
+        &:checked + label:hover,
+        &:checked:focus + label {
+            background-color: @form-advanced-radio-toggle-option-hover-background;
+            border-color: @form-advanced-radio-toggle-option-hover-border-color;
+            color: @form-advanced-radio-toggle-option-hover-color;
+        }
+        &:checked:active + label {
+            background-color: @form-advanced-radio-toggle-option-active-background;
+            border-color: @form-advanced-radio-toggle-option-active-border-color;
+            color: @form-advanced-radio-toggle-option-active-color;
+        }
+
+        /*
+         * Modifier: `uk-radio-toggle-option-primary`
+         */
+        &.uk-radio-toggle-option-primary:checked + label {
+            background-color: @form-advanced-radio-toggle-option-primary-background;
+            border-color: @form-advanced-radio-toggle-option-primary-border-color;
+            color: @form-advanced-radio-toggle-option-primary-color;
+        }
+        &.uk-radio-toggle-option-primary:checked + label:hover,
+        &.uk-radio-toggle-option-primary:checked:focus + label {
+            background-color: @form-advanced-radio-toggle-option-primary-hover-background;
+            border-color: @form-advanced-radio-toggle-option-primary-hover-border-color;
+            color: @form-advanced-radio-toggle-option-primary-hover-color;
+        }
+        &.uk-radio-toggle-option-primary:checked:active + label {
+            background-color: @form-advanced-radio-toggle-option-primary-active-background;
+            border-color: @form-advanced-radio-toggle-option-primary-active-border-color;
+            color: @form-advanced-radio-toggle-option-primary-active-color;
+        }
+
+        /*
+         * Modifier: `uk-radio-toggle-option-callout`
+         */
+        &.uk-radio-toggle-option-callout:checked + label {
+            background-color: @form-advanced-radio-toggle-option-callout-background;
+            border-color: @form-advanced-radio-toggle-option-callout-border-color;
+            color: @form-advanced-radio-toggle-option-callout-color;
+        }
+        &.uk-radio-toggle-option-callout:checked + label:hover,
+        &.uk-radio-toggle-option-callout:checked:focus + label {
+            background-color: @form-advanced-radio-toggle-option-callout-hover-background;
+            border-color: @form-advanced-radio-toggle-option-callout-hover-border-color;
+            color: @form-advanced-radio-toggle-option-callout-hover-color;
+        }
+        &.uk-radio-toggle-option-callout:checked:active + label {
+            background-color: @form-advanced-radio-toggle-option-callout-active-background;
+            border-color: @form-advanced-radio-toggle-option-callout-active-border-color;
+            color: @form-advanced-radio-toggle-option-callout-active-color;
+        }
+
+        /*
+         * Modifier: `uk-radio-toggle-option-success`
+         */
+        &.uk-radio-toggle-option-success:checked + label {
+            background-color: @form-advanced-radio-toggle-option-success-background;
+            border-color: @form-advanced-radio-toggle-option-success-border-color;
+            color: @form-advanced-radio-toggle-option-success-color;
+        }
+        &.uk-radio-toggle-option-success:checked + label:hover,
+        &.uk-radio-toggle-option-success:checked:focus + label {
+            background-color: @form-advanced-radio-toggle-option-success-hover-background;
+            border-color: @form-advanced-radio-toggle-option-success-hover-border-color;
+            color: @form-advanced-radio-toggle-option-success-hover-color;
+        }
+        &.uk-radio-toggle-option-success:checked:active + label {
+            background-color: @form-advanced-radio-toggle-option-success-active-background;
+            border-color: @form-advanced-radio-toggle-option-success-active-border-color;
+            color: @form-advanced-radio-toggle-option-success-active-color;
+        }
+
+        /*
+         * Modifier: `uk-radio-toggle-option-danger`
+         */
+        &.uk-radio-toggle-option-danger:checked + label {
+            background-color: @form-advanced-radio-toggle-option-danger-background;
+            border-color: @form-advanced-radio-toggle-option-danger-border-color;
+            color: @form-advanced-radio-toggle-option-danger-color;
+        }
+        &.uk-radio-toggle-option-danger:checked + label:hover,
+        &.uk-radio-toggle-option-danger:checked:focus + label {
+            background-color: @form-advanced-radio-toggle-option-danger-hover-background;
+            border-color: @form-advanced-radio-toggle-option-danger-hover-border-color;
+            color: @form-advanced-radio-toggle-option-danger-hover-color;
+        }
+        &.uk-radio-toggle-option-danger:checked:active + label {
+            background-color: @form-advanced-radio-toggle-option-danger-active-background;
+            border-color: @form-advanced-radio-toggle-option-danger-active-border-color;
+            color: @form-advanced-radio-toggle-option-danger-active-color;
+        }
+      
+    }
+  
+    > label {
+        .uk-userselect-none;
+
+        border: @form-advanced-radio-toggle-border-width solid transparent;
+        border-radius: @form-advanced-radio-toggle-border-radius;
+        box-sizing: border-box;
+        cursor: pointer;
+        display: inline-block;
+        float: left;
+        padding: 0 @form-advanced-radio-toggle-padding-horizontal;
+        text-align: center;
+        width: @form-advanced-radio-toggle-option-width;
+    }
+}
+
+/* Size modifiers
+ ========================================================================== */
+
+.uk-radio-toggle-mini {
+    font-size: @form-advanced-radio-toggle-mini-font-size;
+    height: @form-advanced-radio-toggle-mini-height;
+    line-height: @form-advanced-radio-toggle-mini-line-height;
+
+    > label {
+        width: @form-advanced-radio-toggle-option-mini-width;
+    }
+}
+
+.uk-radio-toggle-small {
+    font-size: @form-advanced-radio-toggle-small-font-size;
+    height: @form-advanced-radio-toggle-small-height;
+    line-height: @form-advanced-radio-toggle-small-line-height;
+
+    > label {
+        width: @form-advanced-radio-toggle-option-small-width;
+    }
+}
+
+.uk-radio-toggle-large {
+    font-size: @form-advanced-radio-toggle-large-font-size;
+    height: @form-advanced-radio-toggle-large-height;
+    line-height: @form-advanced-radio-toggle-large-line-height;
+
+    > label {
+        width: @form-advanced-radio-toggle-option-large-width;
+    }
+}
+
+/* Width modifiers
+ ========================================================================== */
+
+.uk-radio-toggle-narrow {
+    > label {
+        width: @form-advanced-radio-toggle-option-narrow-width;
+    }
+    &.uk-radio-toggle-mini > label {
+        width: @form-advanced-radio-toggle-option-narrow-mini-width;
+    }
+    &.uk-radio-toggle-small > label {
+        width: @form-advanced-radio-toggle-option-narrow-small-width;
+    }
+    &.uk-radio-toggle-large > label {
+        width: @form-advanced-radio-toggle-option-narrow-large-width;
+    }
+}
+
+.uk-radio-toggle-wide {
+    > label {
+        width: @form-advanced-radio-toggle-option-wide-width;
+    }
+    &.uk-radio-toggle-mini > label {
+        width: @form-advanced-radio-toggle-option-wide-mini-width;
+    }
+    &.uk-radio-toggle-small > label {
+        width: @form-advanced-radio-toggle-option-wide-small-width;
+    }
+    &.uk-radio-toggle-large > label {
+        width: @form-advanced-radio-toggle-option-wide-large-width;
+    }
+}
+
+
+// Hooks
+// ========================================================================
+

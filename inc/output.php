@@ -16,26 +16,29 @@ logic)
  * @return void
  */
 function basey_head_output() { ?>
-	<nav class="uk-navbar uk-navbar-attached">
+	<nav class="uk-navbar">
 		<div class="uk-container">
-			<a class="uk-navbar-brand" href="<?php echo home_url(); ?>"><img src="/wp-content/themes/dyn-build/assets/media/build/dyn-logo-white.png" height="50"></a>
+			<a class="uk-navbar-brand" href="<?php echo home_url(); ?>"><img src="/wp-content/themes/dyn-build/assets/svg/build/dyn-logo-white.svg"></a>
 			<?php
 			wp_nav_menu( array(
 				'menu'              => 'primary',
 				'theme_location'    => 'primary',
 				'depth'             => 2,
 				'container'         => '',
-				'menu_class'        => 'uk-navbar-nav uk-hidden-small',
+				'menu_class'        => 'uk-navbar-nav uk-hidden-small uk-hidden-medium',
 				'fallback_cb'       => 'basey_primary_menu::fallback',
 				'walker'            => new basey_primary_menu())
 			);
 			?>
+			<div class="uk-navbar-flip uk-hidden-large">
+				<a href="#offcanvas-menu" class="uk-navbar-toggle" data-uk-offcanvas></a>
+			</div>
 			<div id="navbar-side" class="uk-navbar-flip uk-hidden-small">
 					<ul class="uk-navbar-nav">
-							<li><a class="uk-text-uppercase uk-text-spaced uk-temp-button" href="">Connect</a></li>
-							<li><a href=""><i class="uk-icon-search uk-icon-medium"></i></a></li>
+							<li><a class="uk-text-uppercase uk-text-spaced uk-button-nav" href="">Connect</a></li>
+							<li><a href=""><i class="icon-search uk-icon-medium"></i></a></li>
 							<li class="uk-parent" data-uk-dropdown="" aria-haspopup="true" aria-expanded="false">
-                  <a href=""><i class="uk-icon-rebel uk-icon-medium"></i></a>
+                  <a href=""><i class="icon-circle_account uk-icon-medium"></i></a>
                   <div class="uk-dropdown uk-dropdown-navbar uk-dropdown-bottom" aria-hidden="true" style="top: 40px; left: 0px;" tabindex="">
 										<?php
 										wp_nav_menu( array(
@@ -43,7 +46,7 @@ function basey_head_output() { ?>
 											'theme_location'    => 'user',
 											'depth'             => 2,
 											'container'         => '',
-											'menu_class'        => 'uk-navbar-nav uk-hidden-medium',
+											'menu_class'        => 'uk-nav uk-hidden-small',
 											'fallback_cb'       => 'basey_primary_menu::fallback',
 											'walker'            => new basey_primary_menu())
 										);
@@ -52,9 +55,6 @@ function basey_head_output() { ?>
 
               </li>
 					</ul>
-			</div>
-			<div class="uk-navbar-flip uk-visible-small">
-				<a href="#offcanvas-menu" class="uk-navbar-toggle" data-uk-offcanvas></a>
 			</div>
 		</div>
 	</nav>
@@ -105,6 +105,16 @@ function basey_content_after_output() {
 				'items_wrap'     => '<ul id="%1$s" class="%2$s" data-uk-nav>%3$s</ul>',
 				'fallback_cb'    => 'basey_offcanvas_menu::fallback',
 				'walker'         => new basey_offcanvas_menu())
+			);
+
+			wp_nav_menu( array(
+				'menu'              => 'user',
+				'theme_location'    => 'user',
+				'depth'             => 2,
+				'container'         => '',
+				'menu_class'        => 'uk-nav uk-nav-offcanvas uk-nav-parent-icon',
+				'fallback_cb'       => 'basey_primary_menu::fallback',
+				'walker'            => new basey_offcanvas_menu())
 			);
 			?>
 		</div>

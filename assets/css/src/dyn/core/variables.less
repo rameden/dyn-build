@@ -1,0 +1,190 @@
+// ========================================================================
+//  ___              _   _ ___   _  ___ _
+// |   \ _  _ _ _   | | | |_ _| | |/ (_) |_
+// | |) | || | ' \  | |_| || |  | ' <| |  _|
+// |___/ \_, |_||_|  \___/|___| |_|\_\_|\__|
+//       |__/
+// Dyn UI Kit Core Files, Do NOT modify directly, all changes will be lost
+// This file is imported via Chef and compiled via GruntJS within Portal
+//
+// Usage docs: https://github.corp.dyndns.com/pages/uiux/dyn_uikit/
+// ========================================================================
+
+
+// Brand Colors
+// ========================================================================
+@brand-color-yellow:                            #fce300;
+@brand-color-black:                             #000;
+@brand-color-white:                             #fff;
+
+// Secondary Colors
+// ========================================================================
+@secondary-color-cyan-50:                       #dcf2f7;
+@secondary-color-cyan-100:                      #ade1ef;
+@secondary-color-cyan-200:                      #7cd0e6;
+@secondary-color-cyan-300:                      #44bcda;
+@secondary-color-cyan-400:                      #14afd3;
+@secondary-color-cyan-500:                      #00a3cb;
+@secondary-color-cyan-600:                      #0094ba;
+@secondary-color-cyan-700:                      #0084a6;
+@secondary-color-cyan-800:                      #007392;
+@secondary-color-cyan-900:                      #00556b;
+
+@secondary-color-dark-cyan-50:                  #e9f1f3;
+@secondary-color-dark-cyan-100:                 #ccdee3;
+@secondary-color-dark-cyan-200:                 #afcbd3;
+@secondary-color-dark-cyan-300:                 #8db6c0;
+@secondary-color-dark-cyan-400:                 #77a7b4;
+@secondary-color-dark-cyan-500:                 #6099a8;
+@secondary-color-dark-cyan-600:                 #578b98;
+@secondary-color-dark-cyan-700:                 #4e7c87;
+@secondary-color-dark-cyan-800:                 #446c77;
+@secondary-color-dark-cyan-900:                 #325058;
+
+@secondary-color-blue-grey-50:                  #e8edf0;
+@secondary-color-blue-grey-100:                 #c6ccd1;
+@secondary-color-blue-grey-200:                 #a4aeb6;
+@secondary-color-blue-grey-300:                 #7e8d97;
+@secondary-color-blue-grey-400:                 #637582;
+@secondary-color-blue-grey-500:                 #495d6d;
+@secondary-color-blue-grey-600:                 #3b4b58;
+@secondary-color-blue-grey-700:                 #34424e;
+@secondary-color-blue-grey-800:                 #263139;
+@secondary-color-blue-grey-900:                 #202729;
+
+// Secondary Grays
+// ========================================================================
+@secondary-color-grey-100:                     #fefefe;
+@secondary-color-grey-120:                      #fcfcfc;
+@secondary-color-grey-140:                      #f9f9f9;
+@secondary-color-grey-160:                      #f4f4f4;
+@secondary-color-grey-180:                      #f1f1f1;
+@secondary-color-grey-200:                     #eee;
+@secondary-color-grey-220:                      #ebebeb;
+@secondary-color-grey-240:                      #e8e8e8;
+@secondary-color-grey-260:                      #e3e3e3;
+@secondary-color-grey-280:                      #e0e0e0;
+@secondary-color-grey-300:                     #ddd;
+@secondary-color-grey-320:                      #dadada;
+@secondary-color-grey-340:                      #d7d7d7;
+@secondary-color-grey-360:                      #d2d2d2;
+@secondary-color-grey-380:                      #cfcfcf;
+@secondary-color-grey-400:                     #ccc;
+@secondary-color-grey-420:                      #c9c9c9;
+@secondary-color-grey-440:                      #c6c6c6;
+@secondary-color-grey-460:                      #c1c1c1;
+@secondary-color-grey-480:                      #bebebe;
+@secondary-color-grey-500:                     #bbb;
+@secondary-color-grey-520:                      #b8b8b8;
+@secondary-color-grey-540:                      #b5b5b5;
+@secondary-color-grey-560:                      #b0b0b0;
+@secondary-color-grey-580:                      #adadad;
+@secondary-color-grey-600:                     #aaa;
+@secondary-color-grey-620:                      #a7a7a7;
+@secondary-color-grey-640:                      #a4a4a4;
+@secondary-color-grey-660:                      #9f9f9f;
+@secondary-color-grey-680:                      #9c9c9c;
+@secondary-color-grey-700:                     #999;
+@secondary-color-grey-720:                      #969696;
+@secondary-color-grey-740:                      #939393;
+@secondary-color-grey-760:                      #8e8e8e;
+@secondary-color-grey-780:                      #8b8b8b;
+@secondary-color-grey-800:                     #888;
+@secondary-color-grey-820:                      #858585;
+@secondary-color-grey-840:                      #828282;
+@secondary-color-grey-860:                      #7d7d7d;
+@secondary-color-grey-880:                      #7a7a7a;
+@secondary-color-grey-900:                     #777;
+@secondary-color-grey-920:                      #747474;
+@secondary-color-grey-940:                      #717171;
+@secondary-color-grey-960:                      #6c6c6c;
+@secondary-color-grey-980:                      #696969;
+@secondary-color-grey-1000:                    #666;
+@secondary-color-grey-1020:                     #636363;
+@secondary-color-grey-1040:                     #606060;
+@secondary-color-grey-1060:                     #5b5b5b;
+@secondary-color-grey-1080:                     #585858;
+@secondary-color-grey-1100:                    #555;
+@secondary-color-grey-1120:                     #525252;
+@secondary-color-grey-1140:                     #4f4f4f;
+@secondary-color-grey-1160:                     #4a4a4a;
+@secondary-color-grey-1180:                     #474747;
+@secondary-color-grey-1200:                    #444;
+@secondary-color-grey-1220:                     #414141;
+@secondary-color-grey-1240:                     #3e3e3e;
+@secondary-color-grey-1260:                     #393939;
+@secondary-color-grey-1280:                     #363636;
+@secondary-color-grey-1300:                    #333;
+@secondary-color-grey-1320:                     #303030;
+@secondary-color-grey-1340:                     #2d2d2d;
+@secondary-color-grey-1360:                     #282828;
+@secondary-color-grey-1380:                     #252525;
+@secondary-color-grey-1400:                    #222;
+@secondary-color-grey-1420:                     #1f1f1f;
+@secondary-color-grey-1440:                     #1c1c1c;
+@secondary-color-grey-1460:                     #171717;
+@secondary-color-grey-1480:                     #141414;
+@secondary-color-grey-1500:                    #111;
+@secondary-color-grey-1520:                     #0e0e0e;
+@secondary-color-grey-1540:                     #0b0b0b;
+@secondary-color-grey-1560:                     #060606;
+@secondary-color-grey-1560:                     #030303;
+@secondary-color-grey-1600:                    #010101;
+
+// Accent Colors
+// ========================================================================
+@accent-color-light-green-50:                   #eff7dc;
+@accent-color-light-green-100:                  #d9edac;
+@accent-color-light-green-200:                  #c2e279;
+@accent-color-light-green-300:                  #a9d73f;
+@accent-color-light-green-400:                  #97ce00;
+@accent-color-light-green-500:                  #88c500;
+@accent-color-light-green-600:                  #7ab500;
+@accent-color-light-green-700:                  #6da100;
+@accent-color-light-green-800:                  #5f8e00;
+@accent-color-light-green-900:                  #466800;
+
+@accent-color-orange-50:                        #ffe9dc;
+@accent-color-orange-100:                       #ffcdad;
+@accent-color-orange-200:                       #ffb07b;
+@accent-color-orange-300:                       #ff8e41;
+@accent-color-orange-400:                       #ff7607;
+@accent-color-orange-500:                       #ff6000;
+@accent-color-orange-600:                       #ea5600;
+@accent-color-orange-700:                       #d24e00;
+@accent-color-orange-800:                       #b74300;
+@accent-color-orange-900:                       #873200;
+
+@accent-color-violet-50:                        #eadcf9;
+@accent-color-violet-100:                       #ceadf0;
+@accent-color-violet-200:                       #b37ce8;
+@accent-color-violet-300:                       #9344dd;
+@accent-color-violet-400:                       #7c12d5;
+@accent-color-violet-500:                       #6600cc;
+@accent-color-violet-600:                       #5d00bc;
+@accent-color-violet-700:                       #5200a8;
+@accent-color-violet-800:                       #490094;
+@accent-color-violet-900:                       #36006c;
+
+@accent-color-yellow-gold-50:                   #fffbde;
+@accent-color-yellow-gold-100:                  #fef6b0;
+@accent-color-yellow-gold-200:                  #fdf17f;
+@accent-color-yellow-gold-300:                  #fdeb4c;
+@accent-color-yellow-gold-400:                  #fce726;
+@accent-color-yellow-gold-500:                  #fce300;
+@accent-color-yellow-gold-600:                  #e5cf00;
+@accent-color-yellow-gold-700:                  #cdb800;
+@accent-color-yellow-gold-800:                  #b3a100;
+@accent-color-yellow-gold-900:                  #837600;
+
+// Credit Card Provider Colors
+// http://codepen.io/elishaterada/pen/tGokD
+// ========================================================================
+@credit-card-color-amex:                        #007bc1;
+@credit-card-color-diners-club:                 #004a97;
+@credit-card-color-discover:                    #f68121;
+@credit-card-color-jcb:                         #003a8f;
+@credit-card-color-mastercard:                  #0a3a82;
+@credit-card-color-paypal:                      #253b80;
+@credit-card-color-stripe:                      #00afe1;
+@credit-card-color-visa:                        #0157a2;

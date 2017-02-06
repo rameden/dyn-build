@@ -1,0 +1,153 @@
+// ========================================================================
+//  ___              _   _ ___   _  ___ _
+// |   \ _  _ _ _   | | | |_ _| | |/ (_) |_
+// | |) | || | ' \  | |_| || |  | ' <| |  _|
+// |___/ \_, |_||_|  \___/|___| |_|\_\_|\__|
+//       |__/
+// Dyn UI Kit Core Files, Do NOT modify directly, all changes will be lost
+// This file is imported via Chef and compiled via GruntJS within Portal
+//
+// Usage docs: https://github.corp.dyndns.com/pages/uiux/dyn_uikit/
+// ========================================================================
+
+
+// Variables
+// ========================================================================
+
+@panel-title-margin-bottom:                     10px;
+@panel-title-font-size:                         @base-h3-font-size;
+@panel-title-line-height:                       @base-h3-line-height;
+@panel-title-font-weight:                       @base-h3-font-weight;
+@panel-title-color:                             @base-h3-color;
+
+@panel-teaser-margin-bottom:                    @panel-title-margin-bottom;
+
+@panel-box-padding:                             16px;
+@panel-box-background:                          #fff;
+@panel-box-color:                               @base-body-color;
+@panel-box-hover-color:                         @base-body-color;
+@panel-box-title-color:                         @panel-title-color;
+
+@panel-box-primary-background:                  lighten(@secondary-color-cyan-50, 3.5%);
+@panel-box-primary-color:                       @base-body-color;
+@panel-box-primary-hover-color:                 @panel-box-hover-color;
+@panel-box-primary-title-color:                 @panel-title-color;
+
+@panel-box-secondary-background:                @secondary-color-grey-140;
+@panel-box-secondary-color:                     @base-body-color;
+@panel-box-secondary-hover-color:               @panel-box-hover-color;
+@panel-box-secondary-title-color:               @panel-title-color;
+
+@panel-hover-padding:                           @panel-box-padding;
+@panel-hover-color:                             @base-body-color;
+@panel-hover-hover-background:                  lighten(@accent-color-yellow-gold-100, 3%);
+@panel-hover-hover-color:                       @base-body-color;
+
+@panel-header-title-color:                      @panel-title-color;
+
+// Custom Variables
+// ========================================================================
+
+@panel-border-width:                            1px;
+@panel-border-radius:                           3px;
+
+@panel-box-border-color:                        @secondary-color-grey-300;
+@panel-box-hover-border-color:                  @accent-color-yellow-gold-600;
+
+@panel-box-primary-border-color:                lighten(@secondary-color-dark-cyan-200, 2.5%);
+@panel-box-primary-hover-border-color:          @panel-box-hover-border-color;
+
+@panel-box-secondary-hover-border-color:        @panel-box-hover-border-color;
+
+@panel-box-callout-background:                  lighten(@accent-color-yellow-gold-50, 2.5%);
+@panel-box-callout-border-color:                @accent-color-yellow-gold-200;
+@panel-box-callout-hover-color:                 @base-body-color;
+
+@panel-box-success-background:                  lighten(@accent-color-light-green-50, 2%);
+@panel-box-success-border-color:                lighten(@accent-color-light-green-200, 5%);
+@panel-box-success-hover-color:                 @base-body-color;
+
+@panel-box-danger-background:                   lighten(@utility-color-danger, 31.5%);
+@panel-box-danger-border-color:                 lighten(@utility-color-danger, 27.5%);
+@panel-box-danger-hover-color:                  @base-body-color;
+
+
+/* ========================================================================
+   Component: Panel
+ ========================================================================== */
+
+/*
+ * Sub-modifier: `uk-panel-box-callout`
+ */
+
+.uk-panel-box-callout {
+    background-color: @panel-box-callout-background;
+    border-color: @panel-box-callout-border-color;
+
+    &:hover {
+        color: @panel-box-callout-hover-color;
+    }
+    .hook-panel-box-callout;
+}
+
+/*
+ * Sub-modifier: `uk-panel-box-success`
+ */
+
+.uk-panel-box-success {
+    background-color: @panel-box-success-background;
+    border-color: @panel-box-success-border-color;
+
+    &:hover {
+        color: @panel-box-success-hover-color;
+    }
+    .hook-panel-box-success;
+}
+
+/*
+ * Sub-modifier: `uk-panel-box-danger`
+ */
+
+.uk-panel-box-danger {
+    background-color: @panel-box-danger-background;
+    border-color: @panel-box-danger-border-color;
+
+    &:hover {
+        color: @panel-box-danger-hover-color;
+    }
+    .hook-panel-box-danger;
+}
+
+// Hooks
+// ========================================================================
+
+.hook-panel-box() {
+    border: @panel-border-width solid @panel-box-border-color;
+}
+.hook-panel-box-hover() {
+    background: @panel-hover-hover-background;
+    border-color: @panel-box-hover-border-color;
+}
+.hook-panel-box-primary() {
+    border-color: @panel-box-primary-border-color;
+}
+.hook-panel-box-primary-hover() {
+    background: @panel-hover-hover-background;
+    border-color: @panel-box-primary-hover-border-color;
+}
+.hook-panel-box-secondary-hover() {
+    background: @panel-hover-hover-background;
+    border-color: @panel-box-secondary-hover-border-color;
+}
+.hook-panel-misc() {
+    .uk-panel {
+        border-radius: @panel-border-radius;
+    }
+}
+
+// Custom Hooks
+// ========================================================================
+
+.hook-panel-box-callout() {}
+.hook-panel-box-success() {}
+.hook-panel-box-danger() {}

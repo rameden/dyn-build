@@ -1,0 +1,133 @@
+// ========================================================================
+//  ___              _   _ ___   _  ___ _
+// |   \ _  _ _ _   | | | |_ _| | |/ (_) |_
+// | |) | || | ' \  | |_| || |  | ' <| |  _|
+// |___/ \_, |_||_|  \___/|___| |_|\_\_|\__|
+//       |__/
+// Dyn UI Kit Core Files, Do NOT modify directly, all changes will be lost
+// This file is imported via Chef and compiled via GruntJS within Portal
+//
+// Usage docs: https://github.corp.dyndns.com/pages/uiux/dyn_uikit/
+// ========================================================================
+
+
+// Variables
+// ========================================================================
+
+@base-body-font-family:                         "Source Sans Pro", "Helvetica Neue", Helvetica, Arial, sans-serif;
+@base-body-font-weight:                         300;
+@base-body-font-size:                           16px;
+@base-body-line-height:                         22px;
+
+@base-link-color:                               @secondary-color-cyan-500;
+@base-link-hover-color:                         @secondary-color-cyan-700;
+
+@base-em-color:                                 #000;
+@base-mark-background:                          @accent-color-yellow-gold-100;
+
+@base-heading-font-family:                      Avenir, "Century Gothic", CenturyGothic, AppleGothic, sans-serif;
+@base-heading-font-weight:                      300;
+@base-heading-color:                            @secondary-color-blue-grey-600;
+@base-h2-font-size:                             30px;
+@base-h2-line-height:                           36px;
+@base-h3-font-size:                             20px;
+@base-h3-line-height:                           26px;
+@base-h4-font-size:                             18px;
+@base-h4-line-height:                           24px;
+@base-h5-font-size:                             20px;
+@base-h5-line-height:                           26px;
+@base-h6-font-size:                             14px;
+@base-h6-line-height:                           20px;
+
+// Custom Variables
+// ========================================================================
+
+@base-mark-padding:                             2px;
+
+@base-h1-color:                                 @base-heading-color;
+@base-h1-font-weight:                           @base-heading-font-weight;
+
+@base-h2-color:                                 @base-heading-color;
+@base-h2-font-weight:                           @base-heading-font-weight;
+
+@base-h3-color:                                 @base-heading-color;
+@base-h3-font-weight:                           800;
+
+@base-h4-color:                                 @secondary-color-blue-grey-500;
+@base-h4-font-weight:                           800;
+
+@base-h5-color:                                 @secondary-color-blue-grey-500;
+@base-h5-font-weight:                           500;
+
+@base-h6-color:                                 @secondary-color-blue-grey-400;
+@base-h6-font-weight:                           800;
+
+
+/* ========================================================================
+   Component: Base
+ ========================================================================== */
+
+// Hooks
+// ========================================================================
+
+// Heading hooks; explicitly add color, family, weights here
+// UIkit doesn't add these for `uk-hX` classes,
+// but it doesn't make sense to have these classes
+// if they don't add the same styles...
+.hook-base-h1() {
+    color: @base-h1-color;
+    font-family: @base-heading-font-family;
+    -moz-osx-font-smoothing: grayscale;
+    -webkit-font-smoothing: antialiased;
+    font-weight: @base-h1-font-weight;
+}
+.hook-base-h2() {
+    color: @base-h2-color;
+    font-family: @base-heading-font-family;
+    -moz-osx-font-smoothing: grayscale;
+    -webkit-font-smoothing: antialiased;
+    font-weight: @base-h2-font-weight;
+}
+.hook-base-h3() {
+    color: @base-h3-color;
+    font-family: @base-heading-font-family;
+    -moz-osx-font-smoothing: grayscale;
+    -webkit-font-smoothing: antialiased;
+    font-weight: @base-h3-font-weight;
+}
+.hook-base-h4() {
+    color: @base-h4-color;
+    font-family: @base-heading-font-family;
+    -moz-osx-font-smoothing: grayscale;
+    -webkit-font-smoothing: antialiased;
+    font-weight: @base-h4-font-weight;
+}
+.hook-base-h5() {
+    color: @base-h5-color;
+    font-family: @base-heading-font-family;
+    -moz-osx-font-smoothing: grayscale;
+    -webkit-font-smoothing: antialiased;
+    font-weight: @base-h5-font-weight;
+}
+.hook-base-h6() {
+    color: @base-h6-color;
+    font-family: @base-heading-font-family;
+    -moz-osx-font-smoothing: grayscale;
+    -webkit-font-smoothing: antialiased;
+    font-weight: @base-h6-font-weight;
+}
+.hook-base-misc() {
+    // Overwrite default BOLD;
+    // Has to be in misc hook because there's no other hook for this.
+    // Not variablized, as UIkit doesn't variablize it.
+    b, strong {
+        font-weight: 600;
+    }
+
+    // No hook for mark styling, so we'll put customizations
+    // for it in the misc hook.
+    mark {
+        padding-left: @base-mark-padding;
+        padding-right: @base-mark-padding;
+    }
+}

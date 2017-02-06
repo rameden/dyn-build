@@ -1,0 +1,45 @@
+// ========================================================================
+//  ___              _   _ ___   _  ___ _
+// |   \ _  _ _ _   | | | |_ _| | |/ (_) |_
+// | |) | || | ' \  | |_| || |  | ' <| |  _|
+// |___/ \_, |_||_|  \___/|___| |_|\_\_|\__|
+//       |__/
+// Dyn UI Kit Core Files, Do NOT modify directly, all changes will be lost
+// This file is imported via Chef and compiled via GruntJS within Portal
+//
+// Usage docs: https://github.corp.dyndns.com/pages/uiux/dyn_uikit/
+// ========================================================================
+
+
+// Variables
+// ========================================================================
+
+// Custom Variables
+// ========================================================================
+
+@close-font-size:                               18px;
+
+@close-opacity:                                 0.45;
+@close-hover-opacity:                           0.75;
+
+
+/* ========================================================================
+   Component: Close
+ ========================================================================== */
+
+// Hooks
+// ========================================================================
+
+.hook-close() {
+    font-size: @close-font-size;
+    opacity: @close-opacity;
+}
+.hook-close-alt() {}
+.hook-close-misc() {
+    .uk-close:not(.uk-close-alt) {
+        &:hover,
+        &:focus {
+            opacity: @close-hover-opacity;
+        }
+    }
+}

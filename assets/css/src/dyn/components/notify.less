@@ -1,0 +1,90 @@
+// ========================================================================
+//  ___              _   _ ___   _  ___ _
+// |   \ _  _ _ _   | | | |_ _| | |/ (_) |_
+// | |) | || | ' \  | |_| || |  | ' <| |  _|
+// |___/ \_, |_||_|  \___/|___| |_|\_\_|\__|
+//       |__/
+// Dyn UI Kit Core Files, Do NOT modify directly, all changes will be lost
+// This file is imported via Chef and compiled via GruntJS within Portal
+//
+// Usage docs: https://github.corp.dyndns.com/pages/uiux/dyn_uikit/
+// ========================================================================
+
+
+// Variables
+// ========================================================================
+
+@notify-message-padding:                        20px;
+
+@notify-message-primary-background:             @secondary-color-blue-grey-50;
+@notify-message-primary-color:                  @base-body-color;
+
+@notify-message-success-background:             @accent-color-light-green-600;
+@notify-message-success-color:                  #fff;
+
+@notify-message-warning-background:             @utility-color-warning;
+@notify-message-warning-color:                  #fff;
+
+@notify-message-danger-background:              @utility-color-danger;
+@notify-message-danger-color:                   #fff;
+
+// Custom Variables
+// ========================================================================
+
+@notify-border-radius:                          2px;
+@notify-font-weight:                            600;
+
+
+/* ========================================================================
+   Component: Notify
+ ========================================================================== */
+
+// Hooks
+// ========================================================================
+
+.hook-notify() {
+    font-weight: @notify-font-weight;
+
+    &:not(.uk-notify-top-center) .uk-notify-message {
+        border-radius: @notify-border-radius;
+    }
+}
+.hook-notify-misc() {
+    .uk-notify-top-center {
+        left: 0;
+        margin-left: 0;
+        right: 0;
+        text-align: center;
+        top: 0;
+        width: 100%;
+
+        // Add drop shadow to full size notifies.
+        // Not variablized here because it doesn't make sense.
+        .uk-notify-message {
+            border-top: 3px solid transparent; // For drop shadow
+            margin-bottom: 0;
+            padding-top: @notify-message-padding - 3px;
+
+            + .uk-notify-message:before, &:after {
+                border-top: 1px solid rgba(0, 0, 0, 0.3); // For drop shadow
+                border-bottom: 1px solid rgba(0, 0, 0, 0.125); // For drop shadow
+                box-shadow: 0 1px 0 0 rgba(0, 0, 0, 0.0375); // For drop shadow
+                content: "";
+                display: block;
+                height: 0;
+                left: 0;
+                position: absolute;
+                top: -3px; // For drop shadow
+                width: 100%;
+            }
+            &:after {
+                bottom: -2px; // For drop shadow
+                top: auto;
+            }
+            &:first-child {
+                border: 0;
+                padding-top: @notify-message-padding;
+            }
+        }
+    }
+}

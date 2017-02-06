@@ -1,0 +1,182 @@
+// ========================================================================
+//  ___              _   _ ___   _  ___ _
+// |   \ _  _ _ _   | | | |_ _| | |/ (_) |_
+// | |) | || | ' \  | |_| || |  | ' <| |  _|
+// |___/ \_, |_||_|  \___/|___| |_|\_\_|\__|
+//       |__/
+// Dyn UI Kit Core Files, Do NOT modify directly, all changes will be lost
+// This file is imported via Chef and compiled via GruntJS within Portal
+//
+// Usage docs: https://github.corp.dyndns.com/pages/uiux/dyn_uikit/
+// ========================================================================
+// CSS adapted from http://danielstern.ca/range.css/, but heavily tweaked
+
+
+// Variables
+// ========================================================================
+
+@range-height:                                  6px;
+@range-border-width:                            1px;
+@range-border-radius:                           999px; // Per spec, this guarantees a quarter circle
+
+// Remember to update JS if you change these
+@range-track-empty-color:                       @secondary-color-grey-160;
+@range-track-fill-color:                        @secondary-color-blue-grey-200;
+@range-track-fill-focus-color:                  lighten(@range-track-fill-color, 5%);
+
+@range-thumb-height:                            16px;
+
+@range-thumb-color:                             @secondary-color-blue-grey-500;
+@range-thumb-focus-color:                       @secondary-color-blue-grey-400;
+@range-thumb-inner-focus-color:                 @secondary-color-blue-grey-50;
+
+@range-thumb-focus-focus-box-shadow-width:      2px;
+@range-thumb-focus-focus-box-shadow-color:      rgba(0, 0, 0, 0.6);
+
+
+/* ========================================================================
+     Component: Range
+ ========================================================================== */
+
+input[type=range].uk-range {
+    -webkit-appearance: none;
+    border: 0; // No border, but we set a border color for JS polyfill for Webkit
+    border-color: @range-track-fill-color;  // Used for JS polyfill for Webkit, no actual border
+    margin: 0;
+    padding: 0;
+
+    // Firefox
+    &::-moz-range-track {
+        background: @range-track-empty-color;
+        border-radius: @range-height;
+        box-shadow: inset 0 0 0 @range-border-width @range-track-fill-color;
+        height: @range-height;
+        width: 100%;
+    }
+    &::-moz-range-thumb {
+        background: @range-thumb-color;
+        border: 0;
+        border-radius: @range-border-radius;
+        box-sizing: border-box;
+        cursor: pointer;
+        height: @range-thumb-height;
+        position: relative;
+        width: @range-thumb-height;
+    }
+    &::-moz-range-progress {
+        background: @range-track-fill-color;
+        border-radius: @range-height;
+        box-shadow: inset 0 0 0 @range-border-width @range-track-fill-color;
+        height: @range-height;
+    }
+    &::-moz-focus-outer {
+        border: 0;
+    }
+
+    // Webkit
+    &::-webkit-slider-runnable-track {
+        background: @range-track-empty-color;
+        border-radius: @range-height;
+        box-shadow: inset 0 0 0 @range-border-width @range-track-fill-color;
+        border-color: @range-track-empty-color;
+        height: @range-height;
+        width: 100%;
+    }
+    &::-webkit-slider-thumb {
+        -webkit-appearance: none;
+        background: @range-thumb-color;
+        border: 0;
+        border-radius: @range-border-radius;
+        box-sizing: border-box;
+        color: @range-track-fill-color;
+        cursor: pointer;
+        height: @range-thumb-height;
+        margin-top: -((@range-thumb-height - @range-height) / 2);
+        position: relative;
+        width: @range-thumb-height;
+    }
+
+    // IE/Edge
+    &::-ms-track {
+        background: transparent;
+        border: ((@range-thumb-height - @range-height) / 2) + (@range-thumb-focus-focus-box-shadow-width * 2) solid transparent;
+        border-left: 0;
+        border-right: 0;
+        color: transparent;
+        height: @range-height;
+        width: 100%;
+    }
+    &::-ms-thumb {
+        background: @range-thumb-color;
+        border: 0;
+        border-radius: @range-border-radius;
+        box-sizing: border-box;
+        cursor: pointer;
+        height: @range-thumb-height;
+        position: relative;
+        width: @range-thumb-height;
+    }
+    &::-ms-fill-lower {
+        background: @range-track-fill-color;
+        border-radius: @range-height;
+        box-shadow: inset 0 0 0 @range-border-width @range-track-fill-color;
+    }
+    &::-ms-fill-upper {
+        background: @range-track-empty-color;
+        border-radius: @range-height;
+        box-shadow: inset 0 0 0 @range-border-width @range-track-fill-color;
+    }
+    &::-ms-tooltip {
+        display: none;
+    }
+
+    &:focus{
+        border-color: @range-track-fill-focus-color; // Used for JS polyfill for Webkit, no actual border
+        outline: 0;
+
+        // Firefox
+        &::-moz-range-thumb {
+            background: @range-thumb-focus-color;
+            background-image: radial-gradient(@range-height at 50% 50%,
+                @range-thumb-inner-focus-color 0%,
+                @range-thumb-inner-focus-color 25%,
+                @range-thumb-focus-color 35%,
+                @range-thumb-focus-color 100%);
+            box-shadow: 0 0 @range-thumb-focus-focus-box-shadow-width 0 @range-thumb-focus-focus-box-shadow-color;
+        }
+        &::-moz-range-progress {
+            background: @range-track-fill-focus-color;
+        }
+
+        // Webkit
+        &::-webkit-slider-thumb {
+            background: @range-thumb-focus-color;
+            background-image: radial-gradient(@range-height at 50% 50%,
+                @range-thumb-inner-focus-color 0%,
+                @range-thumb-inner-focus-color 25%,
+                @range-thumb-focus-color 35%,
+                @range-thumb-focus-color 100%);
+            box-shadow: 0 0 @range-thumb-focus-focus-box-shadow-width 0 @range-thumb-focus-focus-box-shadow-color;
+            color: @range-track-fill-focus-color;
+        }
+
+        // IE/Edge
+        &::-ms-thumb {
+            background: @range-thumb-focus-color;
+            background-image: radial-gradient(@range-height at 50% 50%,
+                @range-thumb-inner-focus-color 0%,
+                @range-thumb-inner-focus-color 25%,
+                @range-thumb-focus-color 35%,
+                @range-thumb-focus-color 100%);
+            box-shadow: 0 0 @range-thumb-focus-focus-box-shadow-width 0 @range-thumb-focus-focus-box-shadow-color;
+        }
+        &::-ms-fill-lower {
+            background: @range-track-fill-focus-color;
+            border-radius: @range-height;
+        }
+    }
+}
+
+// Hooks
+// ========================================================================
+

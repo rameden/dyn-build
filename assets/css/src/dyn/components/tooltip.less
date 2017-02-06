@@ -1,0 +1,198 @@
+// ========================================================================
+//  ___              _   _ ___   _  ___ _
+// |   \ _  _ _ _   | | | |_ _| | |/ (_) |_
+// | |) | || | ' \  | |_| || |  | ' <| |  _|
+// |___/ \_, |_||_|  \___/|___| |_|\_\_|\__|
+//       |__/
+// Dyn UI Kit Core Files, Do NOT modify directly, all changes will be lost
+// This file is imported via Chef and compiled via GruntJS within Portal
+//
+// Usage docs: https://github.corp.dyndns.com/pages/uiux/dyn_uikit/
+// ========================================================================
+
+
+// Variables
+// ========================================================================
+
+@tooltip-max-width:                             300px;
+@tooltip-background:                            rgba(0, 0, 0, 0.25);
+@tooltip-triangle-size:                         8px;
+
+@tooltip-color:                                 @base-body-color;
+@tooltip-font-size:                             13px;
+@tooltip-line-height:                           19px;
+
+// Custom Variables
+// ========================================================================
+
+@tooltip-inner-background:                      #fff;
+
+@tooltip-border-color:                          rgba(0, 0, 0, 0.25);
+@tooltip-border-radius:                         2px;
+@tooltip-border-width:                          1px;
+
+@tooltip-shadow-width:                          1px;
+
+@tooltip-header-color:                          @secondary-color-blue-grey-500;
+@tooltip-header-font-size:                      12px;
+@tooltip-header-line-height:                    18px;
+
+@tooltip-body-font-weight:                      normal;
+
+
+/* ========================================================================
+   Component: Tooltip
+ ========================================================================== */
+
+// Hooks
+// ========================================================================
+
+.hook-tooltip() {
+    border-radius: @tooltip-border-radius;
+    box-shadow: 0 0 0 @tooltip-shadow-width rgba(0, 0, 0, 0.1);
+    padding: 0;
+
+    &:before {
+        z-index: @tooltip-z-index + 1;
+    }
+
+    // UIkit class not exposed in CSS, but it exists in the constructed HTML
+    .uk-tooltip-inner {
+        background: @tooltip-inner-background;
+        border-radius: @tooltip-border-radius;
+        font-weight: @tooltip-body-font-weight;
+        margin: @tooltip-border-width;
+        padding: @tooltip-padding-vertical @tooltip-padding-horizontal;
+    }
+
+    // Custom class
+    .uk-tooltip-header {
+        color: @tooltip-header-color;
+        font-size: @tooltip-header-font-size;
+        font-weight: bold;
+        line-height: @tooltip-header-line-height;
+        text-transform: uppercase;
+    }
+}
+
+// Mostly duplicated tooltip triangle styles; but using the :before psuedo element
+// This is to make it possible to add a border to the arrow
+// Modified lines marked with ` // Custom`
+.hook-tooltip-misc() {
+    /* Triangle
+     ========================================================================== */
+
+    /*
+     * 1. Dashed is less antialised than solid
+     */
+
+    .uk-tooltip:before {
+        content: "";
+        display: block;
+        position: absolute;
+        width: 0;
+        height: 0;
+        /* 1 */
+        border: @tooltip-triangle-size dashed @tooltip-inner-background; // Custom
+    }
+
+
+    /* Direction modifiers
+     ========================================================================== */
+
+    /*
+     * Top
+     */
+
+    .uk-tooltip-top:before,
+    .uk-tooltip-top-left:before,
+    .uk-tooltip-top-right:before {
+        bottom: -(@tooltip-triangle-size - @tooltip-border-width - 1px); // Custom
+        border-top-style: solid;
+        border-bottom: none;
+        border-left-color: transparent;
+        border-right-color: transparent;
+    }
+
+    /*
+     * Bottom
+     */
+
+    .uk-tooltip-bottom:before,
+    .uk-tooltip-bottom-left:before,
+    .uk-tooltip-bottom-right:before {
+        top: -(@tooltip-triangle-size - @tooltip-border-width - 1px); // Custom
+        border-bottom-style: solid;
+        border-top: none;
+        border-left-color: transparent;
+        border-right-color: transparent;
+    }
+
+
+    /*
+     * Top/Bottom center
+     */
+
+
+    .uk-tooltip-top:before,
+    .uk-tooltip-bottom:before {
+        left: 50%;
+        margin-left: -@tooltip-triangle-size;
+    }
+
+    /*
+     * Top/Bottom left
+     */
+
+    .uk-tooltip-top-left:before,
+    .uk-tooltip-bottom-left:before { left: @tooltip-offset-horizontal; }
+
+    /*
+     * Top/Bottom right
+     */
+
+    .uk-tooltip-top-right:before,
+    .uk-tooltip-bottom-right:before { right: @tooltip-offset-horizontal; }
+
+    /*
+     * Left
+     */
+
+    .uk-tooltip-left:before {
+        right: -(@tooltip-triangle-size - @tooltip-border-width - 1px); // Custom
+        top: 50%;
+        margin-top: -@tooltip-triangle-size;
+        border-left-style: solid;
+        border-right: none;
+        border-top-color: transparent;
+        border-bottom-color: transparent;
+    }
+
+    /*
+     * Right
+     */
+
+    .uk-tooltip-right:before {
+        left: -(@tooltip-triangle-size - @tooltip-border-width - 1px); // Custom
+        top: 50%;
+        margin-top: -@tooltip-triangle-size;
+        border-right-style: solid;
+        border-left: none;
+        border-top-color: transparent;
+        border-bottom-color: transparent;
+    }
+
+    // Fixes alignment with the tooltip "border"
+    [class*='uk-tooltip-top'] {
+        margin-top: -(@tooltip-border-width + @tooltip-shadow-width);
+    }
+    [class*='uk-tooltip-right'] {
+        margin-left: @tooltip-border-width + @tooltip-shadow-width;
+    }
+    [class*='uk-tooltip-bottom'] {
+        margin-top: @tooltip-border-width + @tooltip-shadow-width;
+    }
+    [class*='uk-tooltip-left'] {
+        margin-left: -(@tooltip-border-width + @tooltip-shadow-width);
+    }
+}
