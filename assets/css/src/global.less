@@ -10,6 +10,9 @@
 @global-main-color             : #222222;
 @global-text-contrast          : #bdbdbd;
 
+//Grays
+@global-light-gray             :#333333;
+
 // Global Colors
 // ========================================================================
 @dyn-yellow                    : #fce300;
@@ -24,6 +27,9 @@ html {
   /* 3 */
   background: #ffffff;
   color: #444444;
+}
+p{
+  font-family: Avenir,"Century Gothic",CenturyGothic,AppleGothic,sans-serif;
 }
 .uk-text-spaced{
   letter-spacing: 1.1px;
@@ -163,6 +169,37 @@ html {
   font-family: Dyn !important;
   content: "\e979";
 }
+/* ========================================================================
+   Dyn Footer
+   ======================================================================== */
+   #footer{
+     background-color:@global-light-gray;
+     padding:50px 0px;
+   }
+   #footer-social > *{
+     color:#fff;
+     margin:0px 30px;
+   }
+/* ========================================================================
+    Social Icons
+    ========================================================================== */
+
+    .uk-icon-twitter:hover,
+    #footer-social .uk-icon-twitter:hover {
+    color: #55acee;
+    }
+    .uk-icon-facebook:hover,
+    #footer-social .uk-icon-facebook:hover {
+    color: #3b5998;
+    }
+    .uk-icon-linkedin:hover,
+    #footer-social .uk-icon-linkedin:hover {
+    color: #0077b5;
+    }
+    .uk-icon-google-plus:hover,
+    #footer-social .uk-icon-google-plus:hover {
+    color: #dd4b39;
+    }
 /* ========================================================================
    Dyn Fonts
    ======================================================================== */

@@ -8,7 +8,7 @@
  * @return void
  */
 function basey_custom_register_sidebars() {
-	$sidebars = array( 'Sidebar' );
+	$sidebars = array( 'Sidebar','Footer' );
 
 	foreach( $sidebars as $sidebar ) {
 		register_sidebar(

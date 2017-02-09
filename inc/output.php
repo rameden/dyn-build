@@ -35,8 +35,8 @@ function basey_head_output() { ?>
 			</div>
 			<div id="navbar-side" class="uk-navbar-flip uk-hidden-small">
 					<ul class="uk-navbar-nav">
-							<li><a class="uk-text-uppercase uk-text-spaced uk-button-nav" href="">Connect</a></li>
-							<li><a href=""><i class="icon-search uk-icon-medium"></i></a></li>
+							<li><a class="uk-text-uppercase uk-text-spaced uk-button-nav" href="#main-contact" data-uk-modal>Connect</a></li>
+							<li><a href="#main-search" data-uk-modal><i class="icon-search uk-icon-medium"></i></a></li>
 							<li class="uk-parent" data-uk-dropdown="" aria-haspopup="true" aria-expanded="false">
                   <a href=""><i class="icon-circle_account uk-icon-medium"></i></a>
                   <div class="uk-dropdown uk-dropdown-navbar uk-dropdown-bottom" aria-hidden="true" style="top: 40px; left: 0px;" tabindex="">
@@ -122,6 +122,35 @@ function basey_content_after_output() {
 	<?php
 }
 add_action( 'basey_content_after', 'basey_content_after_output' );
+
+/**
+ * Basey Footer
+ * @return void
+ */
+function basey_footer_content() {
+?>
+<section id="footer" class="uk-text-center">
+	<?php dynamic_sidebar( 'basey-footer' ); ?>
+</section>
+<!-- Search modal -->
+<div id="main-search" class="uk-modal">
+    <div class="uk-modal-dialog uk-animation-slide-right uk-animation-1">
+        <a class="uk-modal-close uk-close"></a>
+        <?php get_search_form(); ?>
+    </div>
+</div>
+<section id="modal">
+<!-- Contact modal -->
+<div id="main-contact" class="uk-modal">
+    <div class="uk-modal-dialog">
+        <a class="uk-modal-close uk-close"></a>
+        ...
+    </div>
+</div>
+</section>
+<?php
+}
+add_action( 'basey_footer', 'basey_footer_content' );
 
 
 /**
